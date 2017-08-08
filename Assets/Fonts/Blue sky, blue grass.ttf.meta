@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a7afd1731a468ce48854b04810d3f7c5
+timeCreated: 1502141063
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Blue sky, blue grass
+  fontNames:
+  - Blue sky, blue grass
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

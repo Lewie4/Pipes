@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6726c53238588ee46b58c41d484176ee
+timeCreated: 1502141019
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cocosignum Corsivo Italico
+  fontNames:
+  - Cocosignum Corsivo Italico
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5a26c326fc2a49941b3b066958b8117a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

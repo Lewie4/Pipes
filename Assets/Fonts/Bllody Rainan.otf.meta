@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 30659edae8d963b45af7c163806aba35
+timeCreated: 1502141071
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bllody Rainan
+  fontNames:
+  - Bllody Rainan
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0a1f5350b99fcf54c899c6d3137560d2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

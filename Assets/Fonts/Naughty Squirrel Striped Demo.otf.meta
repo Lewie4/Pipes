@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 8fb0fc716a4d40a4c80fd32cf4c52385
+timeCreated: 1502140994
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Naughty Squirrel Striped Demo
+  fontNames:
+  - Naughty Squirrel Striped Demo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d7ddbdb34b797b046a2c181b45d91786
+timeCreated: 1502140994
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Naughty Squirrel Shadowed Demo
+  fontNames:
+  - Naughty Squirrel Shadowed Demo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

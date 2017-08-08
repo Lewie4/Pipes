@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c57d5354a43d76348acdb80087f11db0
+timeCreated: 1502141004
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Graveside BB
+  fontNames:
+  - Graveside BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 79ec7d2a11f0564439bac8a1b61e36be, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d2f2b550988d6c844af187dbc3d30f12
+timeCreated: 1502141055
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bungee Color
+  fontNames:
+  - Bungee Color
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 53d2b74c84555f242943b0141fb1d629, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

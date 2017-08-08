@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 537e13c7a5ceaa5488118ae7adc1f040
+timeCreated: 1502141037
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bungee Outline
+  fontNames:
+  - Bungee Outline
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

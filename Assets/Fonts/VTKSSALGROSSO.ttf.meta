@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 88fe083b9bdfcf1409f86c6417b9c8da
+timeCreated: 1502140979
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: VTKS SAL GROSSO
+  fontNames:
+  - VTKS SAL GROSSO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

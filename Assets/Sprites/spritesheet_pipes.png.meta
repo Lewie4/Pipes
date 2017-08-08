@@ -1,0 +1,1528 @@
+fileFormatVersion: 2
+guid: fd374339827b94040bb0a555feab37d3
+timeCreated: 1501796749
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: pipeGreen_01.png
+    21300002: pipeGreen_02.png
+    21300004: pipeGreen_03.png
+    21300006: pipeGreen_04.png
+    21300008: pipeGreen_05.png
+    21300010: pipeGreen_06.png
+    21300012: pipeGreen_07.png
+    21300014: pipeGreen_08.png
+    21300016: pipeGreen_09.png
+    21300018: pipeGreen_10.png
+    21300020: pipeGreen_11.png
+    21300022: pipeGreen_12.png
+    21300024: pipeGreen_13.png
+    21300026: pipeGreen_14.png
+    21300028: pipeGreen_15.png
+    21300030: pipeGreen_16.png
+    21300032: pipeGreen_17.png
+    21300034: pipeGreen_18.png
+    21300036: pipeGreen_19.png
+    21300038: pipeGreen_20.png
+    21300040: pipeGreen_21.png
+    21300042: pipeGreen_22.png
+    21300044: pipeGreen_23.png
+    21300046: pipeGreen_24.png
+    21300048: pipeGreen_25.png
+    21300050: pipeGreen_26.png
+    21300052: pipeGreen_27.png
+    21300054: pipeGreen_28.png
+    21300056: pipeGreen_29.png
+    21300058: pipeGreen_30.png
+    21300060: pipeGreen_31.png
+    21300062: pipeGreen_32.png
+    21300064: pipeGreen_33.png
+    21300066: pipeGreen_34.png
+    21300068: pipeGreen_35.png
+    21300070: pipeGreen_36.png
+    21300072: pipeGreen_37.png
+    21300074: pipeGreen_38.png
+    21300076: pipeGreen_39.png
+    21300078: pipeGreen_40.png
+    21300080: pipeGreen_41.png
+    21300082: pipeGreen_42.png
+    21300084: pipeGreen_43.png
+    21300086: pipeGreen_44.png
+    21300088: pipeGrey_01.png
+    21300090: pipeGrey_02.png
+    21300092: pipeGrey_03.png
+    21300094: pipeGrey_04.png
+    21300096: pipeGrey_05.png
+    21300098: pipeGrey_06.png
+    21300100: pipeGrey_07.png
+    21300102: pipeGrey_08.png
+    21300104: pipeGrey_09.png
+    21300106: pipeGrey_10.png
+    21300108: pipeGrey_11.png
+    21300110: pipeGrey_12.png
+    21300112: pipeGrey_13.png
+    21300114: pipeGrey_14.png
+    21300116: pipeGrey_15.png
+    21300118: pipeGrey_16.png
+    21300120: pipeGrey_17.png
+    21300122: pipeGrey_18.png
+    21300124: pipeGrey_19.png
+    21300126: pipeGrey_20.png
+    21300128: pipeGrey_21.png
+    21300130: pipeGrey_22.png
+    21300132: pipeGrey_23.png
+    21300134: pipeGrey_24.png
+    21300136: pipeGrey_25.png
+    21300138: pipeGrey_26.png
+    21300140: pipeGrey_27.png
+    21300142: pipeGrey_28.png
+    21300144: pipeGrey_29.png
+    21300146: pipeGrey_30.png
+    21300148: pipeGrey_31.png
+    21300150: pipeGrey_32.png
+    21300152: pipeGrey_33.png
+    21300154: pipeGrey_34.png
+    21300156: pipeGrey_35.png
+    21300158: pipeGrey_36.png
+    21300160: pipeGrey_37.png
+    21300162: pipeGrey_38.png
+    21300164: pipeGrey_39.png
+    21300166: pipeGrey_40.png
+    21300168: pipeGrey_41.png
+    21300170: pipeGrey_42.png
+    21300172: pipeGrey_43.png
+    21300174: pipeGrey_44.png
+    21300176: mapTile_001.png
+    21300178: mapTile_002.png
+    21300180: mapTile_003.png
+    21300182: mapTile_004.png
+    21300184: mapTile_005.png
+    21300186: mapTile_006.png
+    21300188: mapTile_007.png
+    21300190: mapTile_008.png
+    21300192: mapTile_009.png
+    21300194: mapTile_010.png
+    21300196: mapTile_011.png
+    21300198: mapTile_012.png
+    21300200: mapTile_013.png
+    21300202: mapTile_014.png
+    21300204: mapTile_015.png
+    21300206: mapTile_016.png
+    21300208: mapTile_017.png
+    21300210: mapTile_018.png
+    21300212: mapTile_019.png
+    21300214: mapTile_020.png
+    21300216: mapTile_021.png
+    21300218: mapTile_022.png
+    21300220: mapTile_023.png
+    21300222: mapTile_024.png
+    21300224: mapTile_025.png
+    21300226: mapTile_026.png
+    21300228: mapTile_027.png
+    21300230: mapTile_028.png
+    21300232: mapTile_029.png
+    21300234: mapTile_030.png
+    21300236: mapTile_031.png
+    21300238: mapTile_032.png
+    21300240: mapTile_033.png
+    21300242: mapTile_034.png
+    21300244: mapTile_035.png
+    21300246: mapTile_036.png
+    21300248: mapTile_037.png
+    21300250: mapTile_038.png
+    21300252: mapTile_039.png
+    21300254: mapTile_040.png
+    21300256: mapTile_041.png
+    21300258: mapTile_042.png
+    21300260: mapTile_043.png
+    21300262: mapTile_044.png
+    21300264: mapTile_045.png
+    21300266: mapTile_046.png
+    21300268: mapTile_047.png
+    21300270: mapTile_048.png
+    21300272: mapTile_049.png
+    21300274: mapTile_050.png
+    21300276: mapTile_051.png
+    21300278: mapTile_052.png
+    21300280: mapTile_053.png
+    21300282: mapTile_054.png
+    21300284: mapTile_055.png
+    21300286: mapTile_056.png
+    21300288: mapTile_057.png
+    21300290: mapTile_058.png
+    21300292: mapTile_059.png
+    21300294: mapTile_060.png
+    21300296: mapTile_061.png
+    21300298: mapTile_062.png
+    21300300: mapTile_063.png
+    21300302: mapTile_064.png
+    21300304: mapTile_065.png
+    21300306: mapTile_066.png
+    21300308: mapTile_067.png
+    21300310: mapTile_068.png
+    21300312: mapTile_069.png
+    21300314: mapTile_070.png
+    21300316: mapTile_071.png
+    21300318: mapTile_072.png
+    21300320: mapTile_073.png
+    21300322: mapTile_074.png
+    21300324: mapTile_075.png
+    21300326: mapTile_076.png
+    21300328: mapTile_077.png
+    21300330: mapTile_078.png
+    21300332: mapTile_079.png
+    21300334: mapTile_080.png
+    21300336: mapTile_081.png
+    21300338: mapTile_082.png
+    21300340: mapTile_083.png
+    21300342: mapTile_084.png
+    21300344: mapTile_085.png
+    21300346: mapTile_086.png
+    21300348: mapTile_087.png
+    21300350: mapTile_088.png
+    21300352: mapTile_089.png
+    21300354: mapTile_090.png
+    21300356: mapTile_091.png
+    21300358: mapTile_092.png
+    21300360: mapTile_093.png
+    21300362: mapTile_094.png
+    21300364: mapTile_095.png
+    21300366: mapTile_096.png
+    21300368: mapTile_097.png
+    21300370: mapTile_098.png
+    21300372: mapTile_099.png
+    21300374: mapTile_100.png
+    21300376: mapTile_101.png
+    21300378: mapTile_102.png
+    21300380: mapTile_103.png
+    21300382: mapTile_104.png
+    21300384: mapTile_105.png
+    21300386: mapTile_106.png
+    21300388: mapTile_107.png
+    21300390: mapTile_108.png
+    21300392: mapTile_109.png
+    21300394: mapTile_110.png
+    21300396: mapTile_111.png
+    21300398: mapTile_112.png
+    21300400: mapTile_113.png
+    21300402: mapTile_114.png
+    21300404: mapTile_115.png
+    21300406: mapTile_116.png
+    21300408: mapTile_117.png
+    21300410: mapTile_118.png
+    21300412: mapTile_119.png
+    21300414: mapTile_120.png
+    21300416: mapTile_121.png
+    21300418: mapTile_122.png
+    21300420: mapTile_123.png
+    21300422: mapTile_124.png
+    21300424: mapTile_125.png
+    21300426: mapTile_126.png
+    21300428: mapTile_127.png
+    21300430: mapTile_128.png
+    21300432: mapTile_129.png
+    21300434: mapTile_130.png
+    21300436: mapTile_131.png
+    21300438: mapTile_132.png
+    21300440: mapTile_133.png
+    21300442: mapTile_134.png
+    21300444: mapTile_135.png
+    21300446: mapTile_136.png
+    21300448: mapTile_137.png
+    21300450: mapTile_138.png
+    21300452: mapTile_139.png
+    21300454: mapTile_140.png
+    21300456: mapTile_141.png
+    21300458: mapTile_142.png
+    21300460: mapTile_143.png
+    21300462: mapTile_144.png
+    21300464: mapTile_145.png
+    21300466: mapTile_146.png
+    21300468: mapTile_147.png
+    21300470: mapTile_148.png
+    21300472: mapTile_149.png
+    21300474: mapTile_150.png
+    21300476: mapTile_151.png
+    21300478: mapTile_152.png
+    21300480: mapTile_153.png
+    21300482: mapTile_154.png
+    21300484: mapTile_155.png
+    21300486: mapTile_156.png
+    21300488: mapTile_157.png
+    21300490: mapTile_158.png
+    21300492: mapTile_159.png
+    21300494: mapTile_160.png
+    21300496: mapTile_161.png
+    21300498: mapTile_162.png
+    21300500: mapTile_163.png
+    21300502: mapTile_164.png
+    21300504: mapTile_165.png
+    21300506: mapTile_166.png
+    21300508: mapTile_167.png
+    21300510: mapTile_168.png
+    21300512: mapTile_169.png
+    21300514: mapTile_170.png
+    21300516: mapTile_171.png
+    21300518: mapTile_172.png
+    21300520: mapTile_173.png
+    21300522: mapTile_174.png
+    21300524: mapTile_175.png
+    21300526: mapTile_176.png
+    21300528: mapTile_177.png
+    21300530: mapTile_178.png
+    21300532: mapTile_179.png
+    21300534: mapTile_180.png
+    21300536: mapTile_181.png
+    21300538: mapTile_182.png
+    21300540: mapTile_183.png
+    21300542: mapTile_184.png
+    21300544: mapTile_185.png
+    21300546: mapTile_186.png
+    21300548: mapTile_187.png
+    21300550: mapTile_188.png
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pipeGreen_01.png
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 2
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_02.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 242
+        width: 160
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_03.png
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 803
+        width: 102
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_04.png
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1718
+        width: 219
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_05.png
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1556
+        width: 219
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_06.png
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 428
+        width: 220
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_07.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 405
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_08.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 79
+        width: 160
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_09.png
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 582
+        width: 102
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_10.png
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1186
+        width: 219
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_11.png
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1290
+        width: 219
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_12.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 649
+        width: 220
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_13.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 729
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_14.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 1498
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_15.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 1660
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_16.png
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1113
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_17.png
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1275
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_18.png
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 891
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_19.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 323
+        width: 220
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_20.png
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 309
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_21.png
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 531
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_22.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 486
+        width: 220
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_23.png
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 342
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_24.png
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1227
+        width: 176
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_25.png
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 1261
+        width: 118
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_26.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 235
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_27.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1644
+        width: 235
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_28.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 811
+        width: 236
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_29.png
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 932
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_30.png
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 753
+        width: 176
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_31.png
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 1261
+        width: 118
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_32.png
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 38
+        width: 235
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_33.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1288
+        width: 235
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_34.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 236
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_35.png
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 1110
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_36.png
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 164
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_37.png
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 342
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_38.png
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 164
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_39.png
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 97
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_40.png
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 520
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_41.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 395
+        width: 236
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_42.png
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 752
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_43.png
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 990
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGreen_44.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1227
+        width: 236
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_01.png
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 567
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_02.png
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 1659
+        width: 160
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_03.png
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 769
+        width: 102
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_04.png
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 758
+        width: 219
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_05.png
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 862
+        width: 219
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_06.png
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 649
+        width: 220
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_07.png
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 2
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_08.png
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 1659
+        width: 160
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_09.png
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 361
+        width: 102
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_10.png
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1452
+        width: 219
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_11.png
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1024
+        width: 219
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_12.png
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 44
+        width: 220
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_13.png
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 1497
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_14.png
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 1497
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_15.png
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 147
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_16.png
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 1335
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_17.png
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 309
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_18.png
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 531
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_19.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 160
+        width: 220
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_20.png
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 87
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_21.png
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 1113
+        width: 160
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_22.png
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 265
+        width: 220
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_23.png
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1644
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_24.png
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1048
+        width: 176
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_25.png
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 1024
+        width: 118
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_26.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1048
+        width: 235
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_27.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 870
+        width: 235
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_28.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1406
+        width: 236
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_29.png
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1228
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_30.png
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 573
+        width: 176
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_31.png
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 1024
+        width: 118
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_32.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1168
+        width: 235
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_33.png
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1466
+        width: 235
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_34.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 574
+        width: 236
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_35.png
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1644
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_36.png
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1466
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_37.png
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1288
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_38.png
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1406
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_39.png
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1584
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_40.png
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 335
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_41.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1048
+        width: 236
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_42.png
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 520
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_43.png
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1406
+        width: 176
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: pipeGrey_44.png
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1643
+        width: 236
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
