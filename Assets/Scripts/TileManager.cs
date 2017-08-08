@@ -46,6 +46,8 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private List<Level> m_levels = new List<Level>();
 
+    [Space(25f)]
+
     [SerializeField] private GameObject m_startContainer;
     [SerializeField] private List<Tile> m_startTiles = new List<Tile>();
     [SerializeField] private GameObject m_endContainer;
@@ -89,6 +91,10 @@ public class TileManager : MonoBehaviour
         {
             m_timeToStart = m_levels[level].m_timeToStart;
             m_timeToFill = m_levels[level].m_timeToFill;
+            m_gameBoard = m_levels[level].m_board;
+            m_startTiles = m_levels[level].m_startTiles;
+            m_endTiles = m_levels[level].m_endTiles;
+
         }
         else
         {
