@@ -57,7 +57,7 @@
      <None Include="Assets\Sprites\greenSheet.xml" />
      <None Include="Assets\Sprites\blueSheet.xml" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>F:/Users/matil/Documents/GameDesign/Projects/Pipes/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>F:/Users/matil/Documents/Projects/Pipes/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
