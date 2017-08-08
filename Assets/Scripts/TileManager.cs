@@ -89,6 +89,7 @@ public class TileManager : MonoBehaviour
             RT.position = new Vector3(0, diff / 2, 0);
         }
 
+        RT.anchoredPosition3D = new Vector3(RT.anchoredPosition3D.x, 0, 0);
     }
 
     private void PositionTiles()
@@ -146,6 +147,8 @@ public class TileManager : MonoBehaviour
 
     private void Update()
     {
+
+        RT.position = RT.position;
         if (!m_hasLost)
         {
             if (m_hasWon)
