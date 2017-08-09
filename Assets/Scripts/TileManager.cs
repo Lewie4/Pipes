@@ -112,19 +112,19 @@ public class TileManager : MonoBehaviour
         float diff = 0;
         if (parentSize.x >= parentSize.y)
         {
-            RT.sizeDelta = new Vector2(parentSize.y, parentSize.y);
+            float mod = Screen.width / 5;
+            RT.sizeDelta = new Vector2(parentSize.y - mod, parentSize.y - mod);
             diff = parentSize.x - parentSize.y;
             RT.position = new Vector3(diff / 2, 0, 0);
         }
         else
         {
-            float mod = Screen.width / 10;
+            float mod = Screen.width / 5;
             RT.sizeDelta = new Vector2(parentSize.x - mod, parentSize.x - mod);
             diff = parentSize.y - parentSize.x;
-            RT.position = new Vector3(mod / 2, diff / 2, 0);
+            RT.position = new Vector3(mod, diff / 2, 0);
         }
-
-        RT.anchoredPosition3D = new Vector3(RT.anchoredPosition3D.x, (parentSize.y - RT.sizeDelta.y) / 2, 0);
+        RT.anchoredPosition3D = new Vector3((parentSize.x - RT.sizeDelta.x) / 2, (parentSize.y - RT.sizeDelta.y) / 2, 0);
     }
 
     private void PositionTiles()
