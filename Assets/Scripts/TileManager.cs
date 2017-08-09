@@ -70,10 +70,10 @@ public class TileManager : MonoBehaviour
     private float m_currentFillTime = 0;
 
     [SerializeField] private bool m_hasWon = false;
-    [SerializeField] private GameObject m_gameWonObject;
+    [SerializeField] private List<GameObject> m_gameWonObjects = new List<GameObject>();
 
     [SerializeField] private bool m_hasLost = false;
-    [SerializeField] private GameObject m_gameLostObject;
+    [SerializeField] private List<GameObject> m_gameLostObjects = new List<GameObject>();
 
     private void Awake()
     {
@@ -199,9 +199,15 @@ public class TileManager : MonoBehaviour
         {
             if (m_hasWon)
             {
-                if (m_gameWonObject != null && !m_gameWonObject.activeInHierarchy)
+                if (m_gameWonObjects != null)
                 {
-                    m_gameWonObject.SetActive(true);
+                    for (int i = 0; i < m_gameWonObjects.Count; i++)
+                    {
+                        if (!m_gameWonObjects[i].activeInHierarchy)
+                        {
+                            m_gameWonObjects[i].SetActive(true);
+                        }
+                    }
                 }
             }
             else
@@ -302,9 +308,15 @@ public class TileManager : MonoBehaviour
         }
         else
         {
-            if (m_gameLostObject != null && !m_gameLostObject.activeInHierarchy)
+            if (m_gameLostObjects != null)
             {
-                m_gameLostObject.SetActive(true);
+                for (int i = 0; i < m_gameLostObjects.Count; i++)
+                {
+                    if (!m_gameLostObjects[i].activeInHierarchy)
+                    {
+                        m_gameLostObjects[i].SetActive(true);
+                    }
+                }
             }
         }
     }
