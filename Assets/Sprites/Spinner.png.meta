@@ -1,0 +1,1242 @@
+fileFormatVersion: 2
+guid: 4f4852e983ea8414ebf8294a23f53d20
+timeCreated: 1502321665
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Spinner_0
+    21300002: Spinner_1
+    21300004: Spinner_2
+    21300006: Spinner_3
+    21300008: Spinner_4
+    21300010: Spinner_5
+    21300012: Spinner_6
+    21300014: Spinner_7
+    21300016: Spinner_8
+    21300018: Spinner_9
+    21300020: Spinner_10
+    21300022: Spinner_11
+    21300024: Spinner_12
+    21300026: Spinner_13
+    21300028: Spinner_14
+    21300030: Spinner_15
+    21300032: Spinner_16
+    21300034: Spinner_17
+    21300036: Spinner_18
+    21300038: Spinner_19
+    21300040: Spinner_20
+    21300042: Spinner_21
+    21300044: Spinner_22
+    21300046: Spinner_23
+    21300048: Spinner_24
+    21300050: Spinner_25
+    21300052: Spinner_26
+    21300054: Spinner_27
+    21300056: Spinner_28
+    21300058: Spinner_29
+    21300060: Spinner_30
+    21300062: Spinner_31
+    21300064: Spinner_32
+    21300066: Spinner_33
+    21300068: Spinner_34
+    21300070: Spinner_35
+    21300072: Spinner_36
+    21300074: Spinner_37
+    21300076: Spinner_38
+    21300078: Spinner_39
+    21300080: Spinner_40
+    21300082: Spinner_41
+    21300084: Spinner_42
+    21300086: Spinner_43
+    21300088: Spinner_44
+    21300090: Spinner_45
+    21300092: Spinner_46
+    21300094: Spinner_47
+    21300096: Spinner_48
+    21300098: Spinner_49
+    21300100: Spinner_50
+    21300102: Spinner_51
+    21300104: Spinner_52
+    21300106: Spinner_53
+    21300108: Spinner_54
+    21300110: Spinner_55
+    21300112: Spinner_56
+    21300114: Spinner_57
+    21300116: Spinner_58
+    21300118: Spinner_59
+    21300120: Spinner_60
+    21300122: Spinner_61
+    21300124: Spinner_62
+    21300126: Spinner_63
+    21300128: Spinner_64
+    21300130: Spinner_65
+    21300132: Spinner_66
+    21300134: Spinner_67
+    21300136: Spinner_68
+    21300138: Spinner_69
+    21300140: Spinner_70
+    21300142: Spinner_71
+    21300144: Spinner_72
+    21300146: Spinner_73
+    21300148: Spinner_74
+    21300150: Spinner_75
+    21300152: Spinner_76
+    21300154: Spinner_77
+    21300156: Spinner_78
+    21300158: Spinner_79
+    21300160: Spinner_80
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spinner_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_5
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_6
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_7
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_8
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 7687.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_12
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_13
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_14
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_15
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_16
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_17
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 6727.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_19
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_20
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_21
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_22
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_23
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_24
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_25
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_26
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 5767.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_28
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_29
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_30
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_31
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_32
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_33
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_34
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_35
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 4807.1113
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_37
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_38
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_39
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_40
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_41
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_42
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_43
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_44
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 3847.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_46
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_47
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_48
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_49
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_50
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_51
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_52
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_53
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 2887.111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_55
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_56
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_57
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_58
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_59
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_60
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_61
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_62
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 1927.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_64
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_65
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_66
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_67
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_68
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_69
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_70
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_71
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 967.1111
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_73
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_74
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_75
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_76
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_77
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_78
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_79
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spinner_80
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 7.111084
+        width: 960.8889
+        height: 960.8889
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
