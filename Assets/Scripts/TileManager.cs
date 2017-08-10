@@ -313,9 +313,10 @@ public class TileManager : MonoBehaviour
 
                             if (m_pipesToFill[i].m_location.y < 0)
                             {
-                                if (m_topTiles[(int)m_pipesToFill[i].m_location.x] != null)
+                                int current = (m_topTiles.Count - 1) - (int)m_pipesToFill[i].m_location.x;
+                                if (m_topTiles[current] != null)
                                 {
-                                    m_topTiles[(int)m_pipesToFill[i].m_location.x].PipeFill();
+                                    m_topTiles[current].PipeFill();
                                     endFilled = true;
                                     m_numFullEndPipes++;
                                 }
@@ -326,9 +327,10 @@ public class TileManager : MonoBehaviour
                             }
                             else if (m_pipesToFill[i].m_location.x < 0)
                             {
-                                if (m_leftTiles[(int)m_pipesToFill[i].m_location.y] != null)
+                                int current = (int)m_pipesToFill[i].m_location.y;
+                                if (m_leftTiles[current] != null)
                                 {
-                                    m_leftTiles[(int)m_pipesToFill[i].m_location.y].PipeFill();
+                                    m_leftTiles[current].PipeFill();
                                     endFilled = true;
                                     m_numFullEndPipes++;
                                 }
@@ -339,9 +341,10 @@ public class TileManager : MonoBehaviour
                             }
                             else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
                             {
-                                if (m_rightTiles[(int)m_pipesToFill[i].m_location.y] != null)
+                                int current = (int)m_pipesToFill[i].m_location.y;
+                                if (m_rightTiles[current] != null)
                                 {
-                                    m_rightTiles[(int)m_pipesToFill[i].m_location.y].PipeFill();
+                                    m_rightTiles[current].PipeFill();
                                     endFilled = true;
                                     m_numFullEndPipes++;
                                 }
@@ -352,9 +355,10 @@ public class TileManager : MonoBehaviour
                             }
                             else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
                             {
-                                if (m_bottomTiles[(int)m_pipesToFill[i].m_location.x] != null)
+                                int current = (m_bottomTiles.Count - 1) - (int)m_pipesToFill[i].m_location.x;
+                                if (m_bottomTiles[current] != null)
                                 {
-                                    m_bottomTiles[(int)m_pipesToFill[i].m_location.x].PipeFill();
+                                    m_bottomTiles[current].PipeFill();
                                     endFilled = true;
                                     m_numFullEndPipes++;
                                 }
