@@ -11,7 +11,8 @@ public class Tile : MonoBehaviour
         Corner, 
         Line, 
         Cross, 
-        Threeway
+        Threeway,
+        DeadEnd
     };
 
     [System.Serializable]
