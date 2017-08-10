@@ -19,8 +19,10 @@ public class TileManager : MonoBehaviour
     public class Level
     {
         public List<Column> m_board = new List<Column>();
-        public List<Tile> m_startTiles = new List<Tile>();
-        public List<Tile> m_endTiles = new List<Tile>();
+        public List<Tile> m_topTiles = new List<Tile>();
+        public List<Tile> m_leftTiles = new List<Tile>();
+        public List<Tile> m_rightTiles = new List<Tile>();
+        public List<Tile> m_bottomTiles = new List<Tile>();
         public float m_timeToStart = 30f;
         public float m_timeToFill = 3f;
     }
@@ -44,14 +46,21 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    [Header("ALL THE LEVELS")]
+
     [SerializeField] private List<Level> m_levels = new List<Level>();
 
     [Space(25f)]
+    [Header("THE CURRENT GAME BOARD")]
 
-    [SerializeField] private GameObject m_startContainer;
-    [SerializeField] private List<Tile> m_startTiles = new List<Tile>();
-    [SerializeField] private GameObject m_endContainer;
-    [SerializeField] private List<Tile> m_endTiles = new List<Tile>();
+    [SerializeField] private GameObject m_topContainer;
+    [SerializeField] private List<Tile> m_topTiles = new List<Tile>();
+    [SerializeField] private GameObject m_leftContainer;
+    [SerializeField] private List<Tile> m_leftTiles = new List<Tile>();
+    [SerializeField] private GameObject m_rightContainer;
+    [SerializeField] private List<Tile> m_rightTiles = new List<Tile>();
+    [SerializeField] private GameObject m_bottomContainer;
+    [SerializeField] private List<Tile> m_bottomTiles = new List<Tile>();
 
     [SerializeField] private List<Column> m_gameBoard = new List<Column>();
     private float m_tileSize = 220f;
@@ -69,6 +78,9 @@ public class TileManager : MonoBehaviour
     private float m_startFillTime = 0;
     private float m_currentFillTime = 0;
 
+    private int m_numTotalEndPipes = 0;
+    private int m_numFullEndPipes = 0;
+
     [SerializeField] private bool m_hasWon = false;
     [SerializeField] private List<GameObject> m_gameWonObjects = new List<GameObject>();
 
@@ -81,8 +93,10 @@ public class TileManager : MonoBehaviour
 
         SetBoardSize();
         PositionTiles();
-        PositionStartTiles();
-        PositionEndTiles();
+        PositionTopTiles();
+        PositionLeftTiles();
+        PositionRightTiles();
+        PositionBottomTiles();
     }
 
     private void LoadLevel(int level)
@@ -92,9 +106,10 @@ public class TileManager : MonoBehaviour
             m_timeToStart = m_levels[level].m_timeToStart;
             m_timeToFill = m_levels[level].m_timeToFill;
             m_gameBoard = m_levels[level].m_board;
-            m_startTiles = m_levels[level].m_startTiles;
-            m_endTiles = m_levels[level].m_endTiles;
-
+            m_topTiles = m_levels[level].m_topTiles;
+            m_leftTiles = m_levels[level].m_leftTiles;
+            m_rightTiles = m_levels[level].m_rightTiles;
+            m_bottomTiles = m_levels[level].m_bottomTiles;
         }
         else
         {
@@ -149,52 +164,124 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    private void PositionStartTiles()
+    private void PositionTopTiles()
     {
-        RectTransform startRT = m_startContainer.GetComponent<RectTransform>();
-        startRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.x);
-        float currentY = -startRT.sizeDelta.y / 2;
+        RectTransform topRT = m_topContainer.GetComponent<RectTransform>();
+        topRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale);
+        float currentX = -topRT.sizeDelta.x / 2;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_startTiles.Count; i++)
+        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_topTiles.Count; i++)
         {
-            if (m_levels[GameManager.Instance.m_currentLevel].m_startTiles[i] != null)
+            if (m_levels[GameManager.Instance.m_currentLevel].m_topTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_startTiles[i], m_startContainer.transform);
-                m_startTiles[i] = currentTile;
+                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_topTiles[i], m_topContainer.transform);
+                m_topTiles[i] = currentTile;
 
-                m_startTiles[i].transform.localPosition = new Vector3(-m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
-                m_startTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
-                m_startTiles[i].PipeFill();
+                m_topTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), m_halfScale, 0);
+                m_topTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
+                m_topTiles[i].GetComponent<Button>().enabled = false;
 
-                m_pipesToFill.Add(new PipesToFill(new Vector2(0, i), FillLocation.Left));
+                if (m_topTiles[i].GetIsFull())
+                {
+                    m_pipesToFill.Add(new PipesToFill(new Vector2(i, m_gameBoard.Count - 1), FillLocation.Top));
+                }
+                else
+                {
+                    m_numTotalEndPipes++;
+                }
             }
         }
     }
 
-    private void PositionEndTiles()
+    private void PositionLeftTiles()
     {
-        RectTransform endRT = m_endContainer.GetComponent<RectTransform>();
-        endRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.x);
-        float currentY = -endRT.sizeDelta.y / 2;
+        RectTransform leftRT = m_leftContainer.GetComponent<RectTransform>();
+        leftRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.y);
+        float currentY = -leftRT.sizeDelta.y / 2;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_endTiles.Count; i++)
+        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_leftTiles.Count; i++)
         {
-            if (m_levels[GameManager.Instance.m_currentLevel].m_endTiles[i] != null)
+            if (m_levels[GameManager.Instance.m_currentLevel].m_leftTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_endTiles[i], m_endContainer.transform);
-                m_endTiles[i] = currentTile;
+                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_leftTiles[i], m_leftContainer.transform);
+                m_leftTiles[i] = currentTile;
 
-                m_endTiles[i].transform.localPosition = new Vector3(m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
-                m_endTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
-                m_endTiles[i].GetComponent<Button>().enabled = false;
+                m_leftTiles[i].transform.localPosition = new Vector3(-m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
+                m_leftTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
+                m_leftTiles[i].GetComponent<Button>().enabled = false;
+
+                if (m_leftTiles[i].GetIsFull())
+                {
+                    m_pipesToFill.Add(new PipesToFill(new Vector2(0, i), FillLocation.Left));
+                }
+                else
+                {
+                    m_numTotalEndPipes++;
+                }
+            }
+        }
+    }
+
+    private void PositionRightTiles()
+    {
+        RectTransform rightRT = m_rightContainer.GetComponent<RectTransform>();
+        rightRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.y);
+        float currentY = -rightRT.sizeDelta.y / 2;
+
+        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_rightTiles.Count; i++)
+        {
+            if (m_levels[GameManager.Instance.m_currentLevel].m_rightTiles[i] != null)
+            {
+                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_rightTiles[i], m_rightContainer.transform);
+                m_rightTiles[i] = currentTile;
+
+                m_rightTiles[i].transform.localPosition = new Vector3(m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
+                m_rightTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
+                m_rightTiles[i].GetComponent<Button>().enabled = false;
+
+                if (m_rightTiles[i].GetIsFull())
+                {
+                    m_pipesToFill.Add(new PipesToFill(new Vector2(m_gameBoard.Count - 1, i), FillLocation.Right));
+                }
+                else
+                {
+                    m_numTotalEndPipes++;
+                }
+            }
+        }
+    }
+
+    private void PositionBottomTiles()
+    {
+        RectTransform bottomRT = m_bottomContainer.GetComponent<RectTransform>();
+        bottomRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale);
+        float currentX = -bottomRT.sizeDelta.x / 2;
+
+        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_bottomTiles.Count; i++)
+        {
+            if (m_levels[GameManager.Instance.m_currentLevel].m_bottomTiles[i] != null)
+            {
+                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_bottomTiles[i], m_bottomContainer.transform);
+                m_bottomTiles[i] = currentTile;
+
+                m_bottomTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), -m_halfScale, 0);
+                m_bottomTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
+                m_bottomTiles[i].GetComponent<Button>().enabled = false;
+
+                if (m_bottomTiles[i].GetIsFull())
+                {
+                    m_pipesToFill.Add(new PipesToFill(new Vector2(i, 0), FillLocation.Bottom));
+                }
+                else
+                {
+                    m_numTotalEndPipes++;
+                }
             }
         }
     }
 
     private void Update()
     {
-
-        RT.position = RT.position;
         if (!m_hasLost)
         {
             if (m_hasWon)
@@ -218,51 +305,70 @@ public class TileManager : MonoBehaviour
                     {
                         m_currentFillTime = 0;
 
-                        if (m_pipesToFill.Count == 0)
-                        {
-                            GetStartPipe();
-                        }
-
                         int currentFillCount = m_pipesToFill.Count;
 
                         for (int i = 0; i < currentFillCount; i++)
                         {      
                             bool endFilled = false;
-                            if (m_pipesToFill[i].m_location.x < 0 || m_pipesToFill[i].m_location.y >= m_gameBoard.Count || m_pipesToFill[i].m_location.y < 0)
+
+                            if (m_pipesToFill[i].m_location.y < 0)
                             {
-                                m_hasLost = true;
-                            }
-                            else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
-                            {
-                                if (m_endTiles[(int)m_pipesToFill[i].m_location.y] != null)
+                                if (m_topTiles[(int)m_pipesToFill[i].m_location.x] != null)
                                 {
-                                    m_endTiles[(int)m_pipesToFill[i].m_location.y].PipeFill();
+                                    m_topTiles[(int)m_pipesToFill[i].m_location.x].PipeFill();
                                     endFilled = true;
-
-                                    int endTiles = 0;
-                                    int filledEndTiles = 0;
-                                    for (int j = 0; j < m_endTiles.Count; j++)
-                                    {
-                                        if (m_endTiles[j] != null)
-                                        {
-                                            endTiles++;
-                                            if (m_endTiles[j].GetIsFull())
-                                            {
-                                                filledEndTiles++;
-                                            }
-                                        }
-                                    }
-
-                                    if (filledEndTiles >= endTiles)
-                                    {
-                                        m_hasWon = true;
-                                    }
+                                    m_numFullEndPipes++;
                                 }
                                 else
                                 {
                                     m_hasLost = true;
                                 }
                             }
+                            else if (m_pipesToFill[i].m_location.x < 0)
+                            {
+                                if (m_leftTiles[(int)m_pipesToFill[i].m_location.y] != null)
+                                {
+                                    m_leftTiles[(int)m_pipesToFill[i].m_location.y].PipeFill();
+                                    endFilled = true;
+                                    m_numFullEndPipes++;
+                                }
+                                else
+                                {
+                                    m_hasLost = true;
+                                }
+                            }
+                            else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
+                            {
+                                if (m_rightTiles[(int)m_pipesToFill[i].m_location.y] != null)
+                                {
+                                    m_rightTiles[(int)m_pipesToFill[i].m_location.y].PipeFill();
+                                    endFilled = true;
+                                    m_numFullEndPipes++;
+                                }
+                                else
+                                {
+                                    m_hasLost = true;
+                                }
+                            }
+                            else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
+                            {
+                                if (m_bottomTiles[(int)m_pipesToFill[i].m_location.x] != null)
+                                {
+                                    m_bottomTiles[(int)m_pipesToFill[i].m_location.x].PipeFill();
+                                    endFilled = true;
+                                    m_numFullEndPipes++;
+                                }
+                                else
+                                {
+                                    m_hasLost = true;
+                                }
+                            }
+
+                            if (m_numFullEndPipes == m_numTotalEndPipes)
+                            {
+                                m_hasWon = true;
+                            }
+
                             if (!m_hasLost && !endFilled)
                             {
                                 Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
