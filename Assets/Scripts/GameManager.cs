@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
 
-    public int m_currentLevel = 0;
+    [SerializeField] private int m_currentLevel = 0;
 
-    public void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -18,6 +18,28 @@ public class GameManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(this.gameObject);
+        }
+
+        m_currentLevel = PlayerPrefs.GetInt("ProgressLevel", 0);
+    }
+
+    public int GetCurrentLevel()
+    {
+        return m_currentLevel;
+    }
+
+    public void SetCurrentLevel(int currentLevel)
+    {
+        m_currentLevel = currentLevel;
+    }
+
+    public void UnlockNextLevel()
+    {
+        m_currentLevel++;
+
+        if (m_currentLevel > PlayerPrefs.GetInt("ProgressLevel", 0))
+        {
+            PlayerPrefs.SetInt("ProgressLevel", m_currentLevel);
         }
     }
 }

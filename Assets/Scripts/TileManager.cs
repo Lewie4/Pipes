@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TileManager : MonoBehaviour
 {
+    public static TileManager Instance = null;
+
     public enum FillLocation
     {
         None,
@@ -87,22 +89,28 @@ public class TileManager : MonoBehaviour
     [SerializeField] private bool m_hasLost = false;
     [SerializeField] private List<GameObject> m_gameLostObjects = new List<GameObject>();
 
+    private int m_currentLevel = 0;
+
     private void Awake()
     {
-        LoadLevel(GameManager.Instance.m_currentLevel);
-
-        SetBoardSize();
-        PositionTiles();
-        PositionTopTiles();
-        PositionLeftTiles();
-        PositionRightTiles();
-        PositionBottomTiles();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        
+        LoadLevel(GameManager.Instance.GetCurrentLevel());
     }
 
-    private void LoadLevel(int level)
+    public void LoadLevel(int level)
     {
         if (level < m_levels.Count)
         {
+            m_currentLevel = level;
+
             m_timeToStart = m_levels[level].m_timeToStart;
             m_timeToFill = m_levels[level].m_timeToFill;
             m_gameBoard = m_levels[level].m_board;
@@ -110,6 +118,13 @@ public class TileManager : MonoBehaviour
             m_leftTiles = m_levels[level].m_leftTiles;
             m_rightTiles = m_levels[level].m_rightTiles;
             m_bottomTiles = m_levels[level].m_bottomTiles;
+
+            SetBoardSize();
+            PositionTiles();
+            PositionTopTiles();
+            PositionLeftTiles();
+            PositionRightTiles();
+            PositionBottomTiles();
         }
         else
         {
@@ -149,13 +164,13 @@ public class TileManager : MonoBehaviour
 
         m_sizeScale = m_scale / m_tileSize;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_board.Count; i++)
+        for (int i = 0; i < m_levels[m_currentLevel].m_board.Count; i++)
         {
-            for (int j = 0; j < m_levels[GameManager.Instance.m_currentLevel].m_board[i].m_column.Count; j++)
+            for (int j = 0; j < m_levels[m_currentLevel].m_board[i].m_column.Count; j++)
             {
-                if (m_levels[GameManager.Instance.m_currentLevel].m_board[i].m_column[j] != null)
+                if (m_levels[m_currentLevel].m_board[i].m_column[j] != null)
                 {
-                    var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_board[i].m_column[j], this.transform);
+                    var currentTile = Instantiate(m_levels[m_currentLevel].m_board[i].m_column[j], this.transform);
                     m_gameBoard[i].m_column[j] = currentTile;
                     m_gameBoard[i].m_column[j].transform.localPosition = new Vector3(m_halfScale + (i * m_scale), m_halfScale + (j * m_scale), 0);
                     m_gameBoard[i].m_column[j].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
@@ -170,11 +185,11 @@ public class TileManager : MonoBehaviour
         topRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale);
         float currentX = -topRT.sizeDelta.x / 2;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_topTiles.Count; i++)
+        for (int i = 0; i < m_levels[m_currentLevel].m_topTiles.Count; i++)
         {
-            if (m_levels[GameManager.Instance.m_currentLevel].m_topTiles[i] != null)
+            if (m_levels[m_currentLevel].m_topTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_topTiles[i], m_topContainer.transform);
+                var currentTile = Instantiate(m_levels[m_currentLevel].m_topTiles[i], m_topContainer.transform);
                 m_topTiles[i] = currentTile;
 
                 m_topTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), m_halfScale, 0);
@@ -199,11 +214,11 @@ public class TileManager : MonoBehaviour
         leftRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.y);
         float currentY = -leftRT.sizeDelta.y / 2;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_leftTiles.Count; i++)
+        for (int i = 0; i < m_levels[m_currentLevel].m_leftTiles.Count; i++)
         {
-            if (m_levels[GameManager.Instance.m_currentLevel].m_leftTiles[i] != null)
+            if (m_levels[m_currentLevel].m_leftTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_leftTiles[i], m_leftContainer.transform);
+                var currentTile = Instantiate(m_levels[m_currentLevel].m_leftTiles[i], m_leftContainer.transform);
                 m_leftTiles[i] = currentTile;
 
                 m_leftTiles[i].transform.localPosition = new Vector3(-m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
@@ -228,11 +243,11 @@ public class TileManager : MonoBehaviour
         rightRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.y);
         float currentY = -rightRT.sizeDelta.y / 2;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_rightTiles.Count; i++)
+        for (int i = 0; i < m_levels[m_currentLevel].m_rightTiles.Count; i++)
         {
-            if (m_levels[GameManager.Instance.m_currentLevel].m_rightTiles[i] != null)
+            if (m_levels[m_currentLevel].m_rightTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_rightTiles[i], m_rightContainer.transform);
+                var currentTile = Instantiate(m_levels[m_currentLevel].m_rightTiles[i], m_rightContainer.transform);
                 m_rightTiles[i] = currentTile;
 
                 m_rightTiles[i].transform.localPosition = new Vector3(m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
@@ -257,11 +272,11 @@ public class TileManager : MonoBehaviour
         bottomRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale);
         float currentX = -bottomRT.sizeDelta.x / 2;
 
-        for (int i = 0; i < m_levels[GameManager.Instance.m_currentLevel].m_bottomTiles.Count; i++)
+        for (int i = 0; i < m_levels[m_currentLevel].m_bottomTiles.Count; i++)
         {
-            if (m_levels[GameManager.Instance.m_currentLevel].m_bottomTiles[i] != null)
+            if (m_levels[m_currentLevel].m_bottomTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[GameManager.Instance.m_currentLevel].m_bottomTiles[i], m_bottomContainer.transform);
+                var currentTile = Instantiate(m_levels[m_currentLevel].m_bottomTiles[i], m_bottomContainer.transform);
                 m_bottomTiles[i] = currentTile;
 
                 m_bottomTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), -m_halfScale, 0);
@@ -290,7 +305,7 @@ public class TileManager : MonoBehaviour
                 {
                     for (int i = 0; i < m_gameWonObjects.Count; i++)
                     {
-                        if (!m_gameWonObjects[i].activeInHierarchy)
+                        if (!m_gameWonObjects[i].activeSelf)
                         {
                             m_gameWonObjects[i].SetActive(true);
                         }
@@ -422,7 +437,7 @@ public class TileManager : MonoBehaviour
             {
                 for (int i = 0; i < m_gameLostObjects.Count; i++)
                 {
-                    if (!m_gameLostObjects[i].activeInHierarchy)
+                    if (!m_gameLostObjects[i].activeSelf)
                     {
                         m_gameLostObjects[i].SetActive(true);
                     }
