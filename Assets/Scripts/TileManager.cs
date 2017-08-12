@@ -48,11 +48,10 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    [Header("ALL THE LEVELS")]
+    [Header("THE ACTUAL LEVELS")]
 
-    [SerializeField] private List<Level> m_levels = new List<Level>();
+    public List<Level> m_levels = new List<Level>();
 
-    [Space(25f)]
     [Header("THE CURRENT GAME BOARD")]
 
     [SerializeField] private GameObject m_topContainer;
@@ -328,10 +327,10 @@ public class TileManager : MonoBehaviour
 
                             if (m_pipesToFill[i].m_location.y < 0)
                             {
-                                int current = (m_topTiles.Count - 1) - (int)m_pipesToFill[i].m_location.x;
-                                if (m_topTiles[current] != null)
+                                int current = (int)m_pipesToFill[i].m_location.x;
+                                if (m_bottomTiles[current] != null)
                                 {
-                                    m_topTiles[current].PipeFill();
+                                    m_bottomTiles[current].PipeFill();
                                     endFilled = true;
                                     m_numFullEndPipes++;
                                 }
@@ -370,10 +369,10 @@ public class TileManager : MonoBehaviour
                             }
                             else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
                             {
-                                int current = (m_bottomTiles.Count - 1) - (int)m_pipesToFill[i].m_location.x;
-                                if (m_bottomTiles[current] != null)
+                                int current = (int)m_pipesToFill[i].m_location.x;
+                                if (m_topTiles[current] != null)
                                 {
-                                    m_bottomTiles[current].PipeFill();
+                                    m_topTiles[current].PipeFill();
                                     endFilled = true;
                                     m_numFullEndPipes++;
                                 }
@@ -391,21 +390,28 @@ public class TileManager : MonoBehaviour
                             if (!m_hasLost && !endFilled)
                             {
                                 Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
-                                if (!currentTile.GetIsFull())
+                                if (currentTile != null)
                                 {
-                                    if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
-                                    {                                    
-                                        currentTile.PipeFill();
-
-                                        CheckTop(i);
-                                        CheckLeft(i);
-                                        CheckRight(i);
-                                        CheckBottom(i);
-                                    }
-                                    else
+                                    if (!currentTile.GetIsFull())
                                     {
-                                        m_hasLost = true;
+                                        if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
+                                        {                                    
+                                            currentTile.PipeFill();
+
+                                            CheckTop(i);
+                                            CheckLeft(i);
+                                            CheckRight(i);
+                                            CheckBottom(i);
+                                        }
+                                        else
+                                        {
+                                            m_hasLost = true;
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    m_hasLost = true;
                                 }
                             }
                         }
