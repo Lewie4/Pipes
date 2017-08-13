@@ -321,121 +321,135 @@ public class TileManager : MonoBehaviour
 
                         int currentFillCount = m_pipesToFill.Count;
 
-                        for (int i = 0; i < currentFillCount; i++)
-                        {      
-                            bool endFilled = false;
+                        if (currentFillCount > 0)
+                        {
+                            for (int i = 0; i < currentFillCount; i++)
+                            {      
+                                bool endFilled = false;
 
-                            if (m_pipesToFill[i].m_location.y < 0)
-                            {
-                                int current = (int)m_pipesToFill[i].m_location.x;
-                                if (m_bottomTiles[current] != null)
+                                if (m_pipesToFill[i].m_location.y < 0)
                                 {
-                                    m_bottomTiles[current].PipeFill();
-                                    endFilled = true;
-                                    m_numFullEndPipes++;
-                                }
-                                else
-                                {
-                                    m_hasLost = true;
-                                }
-                            }
-                            else if (m_pipesToFill[i].m_location.x < 0)
-                            {
-                                int current = (int)m_pipesToFill[i].m_location.y;
-                                if (m_leftTiles[current] != null)
-                                {
-                                    m_leftTiles[current].PipeFill();
-                                    endFilled = true;
-                                    m_numFullEndPipes++;
-                                }
-                                else
-                                {
-                                    m_hasLost = true;
-                                }
-                            }
-                            else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
-                            {
-                                int current = (int)m_pipesToFill[i].m_location.y;
-                                if (m_rightTiles[current] != null)
-                                {
-                                    m_rightTiles[current].PipeFill();
-                                    endFilled = true;
-                                    m_numFullEndPipes++;
-                                }
-                                else
-                                {
-                                    m_hasLost = true;
-                                }
-                            }
-                            else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
-                            {
-                                int current = (int)m_pipesToFill[i].m_location.x;
-                                if (m_topTiles[current] != null)
-                                {
-                                    m_topTiles[current].PipeFill();
-                                    endFilled = true;
-                                    m_numFullEndPipes++;
-                                }
-                                else
-                                {
-                                    m_hasLost = true;
-                                }
-                            }
-
-                            if (m_numFullEndPipes == m_numTotalEndPipes)
-                            {
-                                m_hasWon = true;
-                            }
-
-                            if (!m_hasLost && !endFilled)
-                            {
-                                Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
-                                if (currentTile != null)
-                                {
-                                    if (!currentTile.GetIsFull())
+                                    int current = (int)m_pipesToFill[i].m_location.x;
+                                    if (m_bottomTiles[current] != null)
                                     {
-                                        if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
-                                        {                                    
-                                            currentTile.PipeFill();
+                                        m_bottomTiles[current].PipeFill();
+                                        endFilled = true;
+                                        m_numFullEndPipes++;
+                                    }
+                                    else
+                                    {
+                                        m_hasLost = true;
+                                    }
+                                }
+                                else if (m_pipesToFill[i].m_location.x < 0)
+                                {
+                                    int current = (int)m_pipesToFill[i].m_location.y;
+                                    if (m_leftTiles[current] != null)
+                                    {
+                                        m_leftTiles[current].PipeFill();
+                                        endFilled = true;
+                                        m_numFullEndPipes++;
+                                    }
+                                    else
+                                    {
+                                        m_hasLost = true;
+                                    }
+                                }
+                                else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
+                                {
+                                    int current = (int)m_pipesToFill[i].m_location.y;
+                                    if (m_rightTiles[current] != null)
+                                    {
+                                        m_rightTiles[current].PipeFill();
+                                        endFilled = true;
+                                        m_numFullEndPipes++;
+                                    }
+                                    else
+                                    {
+                                        m_hasLost = true;
+                                    }
+                                }
+                                else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
+                                {
+                                    int current = (int)m_pipesToFill[i].m_location.x;
+                                    if (m_topTiles[current] != null)
+                                    {
+                                        m_topTiles[current].PipeFill();
+                                        endFilled = true;
+                                        m_numFullEndPipes++;
+                                    }
+                                    else
+                                    {
+                                        m_hasLost = true;
+                                    }
+                                }
 
-                                            CheckTop(i);
-                                            CheckLeft(i);
-                                            CheckRight(i);
-                                            CheckBottom(i);
+                                if (m_numFullEndPipes == m_numTotalEndPipes)
+                                {
+                                    m_hasWon = true;
+                                }
+
+                                if (!m_hasLost && !endFilled)
+                                {
+                                    Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
+                                    if (currentTile != null)
+                                    {
+                                        if (!currentTile.GetIsFull())
+                                        {
+                                            if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
+                                            {                                    
+                                                currentTile.PipeFill();
+
+                                                CheckTop(i);
+                                                CheckLeft(i);
+                                                CheckRight(i);
+                                                CheckBottom(i);
+                                            }
+                                            else
+                                            {
+                                                m_hasLost = true;
+                                            }
                                         }
                                         else
                                         {
-                                            m_hasLost = true;
+                                            if (!CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
+                                            {
+                                                m_hasLost = true;
+                                            }
                                         }
                                     }
-                                }
-                                else
-                                {
-                                    m_hasLost = true;
+                                    else
+                                    {
+                                        m_hasLost = true;
+                                    }
                                 }
                             }
-                        }
 
-                        m_pipesToFill.RemoveRange(0, currentFillCount);
+                            m_pipesToFill.RemoveRange(0, currentFillCount);
+                        }
+                        else
+                        {
+                            m_hasLost = true;
+                        }
+                    }
+                        else
+                        {
+                            m_currentFillTime += Time.deltaTime;
+                        }
                     }
                     else
                     {
-                        m_currentFillTime += Time.deltaTime;
+                        if (m_startFillTime < m_timeToStart)
+                        {
+                            m_startFillTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            m_isFilling = true;
+                            m_currentFillTime = m_timeToFill;
+                        }
                     }
                 }
-                else
-                {
-                    if (m_startFillTime < m_timeToStart)
-                    {
-                        m_startFillTime += Time.deltaTime;
-                    }
-                    else
-                    {
-                        m_isFilling = true;
-                        m_currentFillTime = m_timeToFill;
-                    }
-                }
-            }
         }
         else
         {
