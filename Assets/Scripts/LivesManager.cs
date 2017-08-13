@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LivesManager : MonoBehaviour {
-
+public class LivesManager : MonoBehaviour
+{
     public void SpendLives(int lives)
     {
         GameManager.Instance.SpendLives(lives);
+    }
+
+    public void WatchAdForLife()
+    {
+        AdsManager.Instance.ShowRewardedAd();
     }
 }
