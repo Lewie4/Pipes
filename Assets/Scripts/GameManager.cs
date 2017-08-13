@@ -192,4 +192,14 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("CurrentLives", m_currentLives);
     }
+
+    public int GetCurrentLives()
+    {
+        return m_currentLives;
+    }
+
+    public int GetMaxLives()
+    {
+        return m_maxLives;
+    }
 }
