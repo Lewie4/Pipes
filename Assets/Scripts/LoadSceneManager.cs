@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
+    
+
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -24,11 +26,21 @@ public class LoadSceneManager : MonoBehaviour
 
     public void FailAndReloadLevel()
     {
+        if (AdsManager.Instance.CheckRandomInterstitialAd())
+        {
+            AdsManager.Instance.ShowInterstitialAd();
+        }
+
         LoadGameLevel(GameManager.Instance.GetCurrentLevel());
     }
 
     public void UnlockAndLoadNextLevel()
     {
+        if (AdsManager.Instance.CheckRandomInterstitialAd())
+        {
+            AdsManager.Instance.ShowInterstitialAd();
+        }
+
         GameManager.Instance.UnlockNextLevel();
         LoadGameLevel(GameManager.Instance.GetCurrentLevel());
     }

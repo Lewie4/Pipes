@@ -5,6 +5,8 @@ public class AdsManager : MonoBehaviour
 {
     public static AdsManager Instance = null;
 
+    private int m_adChance = 10;
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,12 +20,48 @@ public class AdsManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Time.timeScale == 0 && !Advertisement.isShowing)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public bool CheckRewardedAd()
+    {
+        if (Advertisement.IsReady("rewardedVideo"))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void ShowRewardedAd()
     {
         if (Advertisement.IsReady("rewardedVideo"))
         {
             var options = new ShowOptions { resultCallback = HandleShowResult };
             Advertisement.Show("rewardedVideo", options);
+            Time.timeScale = 0;
+        }
+    }
+
+    public bool CheckInterstitialAd()
+    {
+        if (Advertisement.IsReady("video"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void ShowInterstitialAd()
+    {
+        if (Advertisement.IsReady("video"))
+        {
+            Advertisement.Show("video");
+            Time.timeScale = 0;
         }
     }
 
@@ -42,5 +80,14 @@ public class AdsManager : MonoBehaviour
                 Debug.LogError("The ad failed to be shown.");
                 break;
         }
+    }
+
+    public bool CheckRandomInterstitialAd()
+    {
+        if (Random.Range(0, 100) <= m_adChance && AdsManager.Instance.CheckInterstitialAd() && CheckInterstitialAd())
+        {
+            return true;
+        }
+        return false;
     }
 }
