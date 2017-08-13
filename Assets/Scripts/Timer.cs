@@ -3,41 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour 
+public class Timer : MonoBehaviour
 {
-    public Transform Loadingbar;
-    public Transform TextIndicator;
+    [SerializeField] private Image m_loadingbar;
+    [SerializeField] private Text m_textIndicator;
 
-    private float timeToStart;
+    private float m_timeToStart;
+    private float m_currentAmount;
+    private bool m_goSet = false;
 
-    [SerializeField] private float currentAmount;
 
     void Start()
     {
-        timeToStart = TileManager.Instance.GetTimeToStart();
-        currentAmount = timeToStart;
+        m_timeToStart = TileManager.Instance.GetTimeToStart();
+        m_currentAmount = m_timeToStart;
     }
 
     void Update()
     {
-        if (currentAmount > 0)
+        if (!m_goSet)
         {
-            currentAmount -= Time.deltaTime;
-            //if (currentAmount >= 10)
+            if (m_currentAmount > 0)
             {
-                TextIndicator.GetComponent<Text>().text = ((int)currentAmount).ToString();
+                m_currentAmount -= Time.deltaTime;
+                m_textIndicator.text = (m_currentAmount).ToString("F0");
             }
-            /*
             else
             {
-                TextIndicator.GetComponent<Text>().text = (currentAmount).ToString("F1");
+                m_textIndicator.text = "GO!";
+                m_goSet = true;
             }
-            */
+            m_loadingbar.fillAmount = m_currentAmount / m_timeToStart;
         }
-        else
-        {
-            TextIndicator.GetComponent<Text>().text = "GO!";
-        }
-        Loadingbar.GetComponent<Image>().fillAmount = currentAmount / timeToStart;
     }
 }
