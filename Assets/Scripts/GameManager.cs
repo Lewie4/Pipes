@@ -180,4 +180,16 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("TimeLivesSpent", m_timeLivesSpent);
     }
+
+    public void GainLives(int num)
+    {
+        m_currentLives += num;
+
+        if (m_currentLives > m_maxLives)
+        {
+            m_currentLives = m_maxLives;
+        }
+
+        PlayerPrefs.SetInt("CurrentLives", m_currentLives);
+    }
 }

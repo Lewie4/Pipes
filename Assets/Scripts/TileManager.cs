@@ -307,6 +307,8 @@ public class TileManager : MonoBehaviour
                         if (!m_gameWonObjects[i].activeSelf)
                         {
                             m_gameWonObjects[i].SetActive(true);
+
+                            GameManager.Instance.GainLives(1);
                         }
                     }
                 }
@@ -432,24 +434,24 @@ public class TileManager : MonoBehaviour
                             m_hasLost = true;
                         }
                     }
-                        else
-                        {
-                            m_currentFillTime += Time.deltaTime;
-                        }
+                    else
+                    {
+                        m_currentFillTime += Time.deltaTime;
+                    }
+                }
+                else
+                {
+                    if (m_startFillTime < m_timeToStart)
+                    {
+                        m_startFillTime += Time.deltaTime;
                     }
                     else
                     {
-                        if (m_startFillTime < m_timeToStart)
-                        {
-                            m_startFillTime += Time.deltaTime;
-                        }
-                        else
-                        {
-                            m_isFilling = true;
-                            m_currentFillTime = m_timeToFill;
-                        }
+                        m_isFilling = true;
+                        m_currentFillTime = m_timeToFill;
                     }
                 }
+            }
         }
         else
         {
