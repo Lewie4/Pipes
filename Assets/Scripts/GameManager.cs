@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        #if !UNITY_EDITOR
         m_currentLevel = PlayerPrefs.GetInt("ProgressLevel", 0);
+        #endif
     }
 
     public int GetCurrentLevel()
