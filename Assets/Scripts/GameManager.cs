@@ -176,6 +176,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int GetLivesTimer()
+    {
+        if (m_currentLives != m_maxLives)
+        {
+            int timer = (m_timeLivesSpent + m_timeToLivesRefil) - (int)(LocalTime() - m_timeOffset);
+
+            if (timer > 0)
+            {
+                return timer;
+            }
+        }
+        return 0;
+    }
+
     public void SpendLives(int num)
     {
         m_currentLives -= num;
