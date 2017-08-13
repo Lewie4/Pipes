@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class TileManager : MonoBehaviour
 {
@@ -308,6 +309,8 @@ public class TileManager : MonoBehaviour
                         {
                             m_gameWonObjects[i].SetActive(true);
 
+                            SendLevelCompletedAnalytic();
+
                             GameManager.Instance.GainLives(1);
                         }
                     }
@@ -462,6 +465,7 @@ public class TileManager : MonoBehaviour
                     if (!m_gameLostObjects[i].activeSelf)
                     {
                         m_gameLostObjects[i].SetActive(true);
+                        SendLevelFailedAnalytic();
                     }
                 }
             }
@@ -552,5 +556,21 @@ public class TileManager : MonoBehaviour
     public float GetStartFillTime()
     {
         return m_startFillTime;
+    }
+
+    public void SendLevelCompletedAnalytic()
+    {
+        Dictionary<string, object> eventData = new Dictionary<string, object>();
+        eventData.Add("Level", GameManager.Instance.GetCurrentLevel());
+
+        Analytics.CustomEvent("LevelCompleted", eventData);
+    }
+
+    public void SendLevelFailedAnalytic()
+    {
+        Dictionary<string, object> eventData = new Dictionary<string, object>();
+        eventData.Add("Level", GameManager.Instance.GetCurrentLevel());
+
+        Analytics.CustomEvent("LevelFailed", eventData);
     }
 }

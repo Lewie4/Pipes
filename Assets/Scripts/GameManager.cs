@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Net;
 using System.Net.Sockets;
+using UnityEngine.Analytics;
 
 public class GameManager : MonoBehaviour
 {
@@ -71,7 +72,16 @@ public class GameManager : MonoBehaviour
         if (m_currentLevel > PlayerPrefs.GetInt("ProgressLevel", 0))
         {
             PlayerPrefs.SetInt("ProgressLevel", m_currentLevel);
+            SendLevelUnlockedAnalytic();
         }
+    }
+
+    public void SendLevelUnlockedAnalytic()
+    {
+        Dictionary<string, object> eventData = new Dictionary<string, object>();
+        eventData.Add("Level", GameManager.Instance.GetCurrentLevel());
+
+        Analytics.CustomEvent("LevelUnlocked", eventData);
     }
 
     public static DateTime GetNetworkTime()
