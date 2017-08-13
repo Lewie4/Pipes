@@ -16,24 +16,33 @@ public class Timer : MonoBehaviour
     void Start()
     {
         m_timeToStart = TileManager.Instance.GetTimeToStart();
-        m_currentAmount = m_timeToStart;
+        m_currentAmount = TileManager.Instance.GetStartFillTime();
     }
 
     void Update()
     {
         if (!m_goSet)
         {
-            if (m_currentAmount > 0)
+            if (m_timeToStart != TileManager.Instance.GetTimeToStart())
             {
-                m_currentAmount -= Time.deltaTime;
-                m_textIndicator.text = (m_currentAmount).ToString("F0");
+                m_timeToStart = TileManager.Instance.GetTimeToStart();
             }
-            else
+
+            if (m_currentAmount != TileManager.Instance.GetStartFillTime())
             {
-                m_textIndicator.text = "GO!";
-                m_goSet = true;
+                m_currentAmount = TileManager.Instance.GetStartFillTime();
             }
-            m_loadingbar.fillAmount = m_currentAmount / m_timeToStart;
+
+            if (m_currentAmount < m_timeToStart)
+                {
+                m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
+                }
+                else
+                {
+                    m_textIndicator.text = "GO!";
+                    m_goSet = true;
+                }
+                m_loadingbar.fillAmount = m_currentAmount / m_timeToStart;
         }
     }
 }
