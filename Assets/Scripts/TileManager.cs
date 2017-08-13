@@ -298,7 +298,7 @@ public class TileManager : MonoBehaviour
     {
         if (!m_hasLost)
         {
-            if (m_hasWon)
+            if (m_hasWon && m_pipesToFill.Count == 0)
             {
                 if (m_gameWonObjects != null)
                 {
