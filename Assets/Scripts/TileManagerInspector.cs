@@ -5,6 +5,7 @@ using UnityEditorInternal;
 [CustomEditor(typeof(TileManager))]
 public class TileManagerInspector : Editor
 {
+    #if UNITY_EDITOR
     private ReorderableList m_reorderableList;
 
     private TileManager m_tileManager;
@@ -72,4 +73,5 @@ public class TileManagerInspector : Editor
             m_reorderableList.DoLayoutList();
         }
     }
+    #endif
 }

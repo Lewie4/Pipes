@@ -527,4 +527,14 @@ public class TileManager : MonoBehaviour
         m_timeToStart = 0;
         m_timeToFill = 0;
     }
+
+    public float GetTimeToStart()
+    {
+        return m_timeToStart;
+    }
+
+    public float GetStartFillTime()
+    {
+        return m_startFillTime;
+    }
 }
