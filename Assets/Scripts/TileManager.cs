@@ -182,7 +182,7 @@ public class TileManager : MonoBehaviour
     private void PositionTopTiles()
     {
         RectTransform topRT = m_topContainer.GetComponent<RectTransform>();
-        topRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale);
+        topRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale * 2);
         float currentX = -topRT.sizeDelta.x / 2;
 
         for (int i = 0; i < m_levels[m_currentLevel].m_topTiles.Count; i++)
@@ -192,7 +192,7 @@ public class TileManager : MonoBehaviour
                 var currentTile = Instantiate(m_levels[m_currentLevel].m_topTiles[i], m_topContainer.transform);
                 m_topTiles[i] = currentTile;
 
-                m_topTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), m_halfScale, 0);
+                m_topTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), m_scale, 0);
                 m_topTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
                 m_topTiles[i].GetComponent<Button>().enabled = false;
 
@@ -269,7 +269,7 @@ public class TileManager : MonoBehaviour
     private void PositionBottomTiles()
     {
         RectTransform bottomRT = m_bottomContainer.GetComponent<RectTransform>();
-        bottomRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale);
+        bottomRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale * 2);
         float currentX = -bottomRT.sizeDelta.x / 2;
 
         for (int i = 0; i < m_levels[m_currentLevel].m_bottomTiles.Count; i++)
@@ -279,7 +279,7 @@ public class TileManager : MonoBehaviour
                 var currentTile = Instantiate(m_levels[m_currentLevel].m_bottomTiles[i], m_bottomContainer.transform);
                 m_bottomTiles[i] = currentTile;
 
-                m_bottomTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), -m_halfScale, 0);
+                m_bottomTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), -m_scale, 0);
                 m_bottomTiles[i].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
                 m_bottomTiles[i].GetComponent<Button>().enabled = false;
 
