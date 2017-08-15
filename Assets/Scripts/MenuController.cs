@@ -16,8 +16,10 @@ public class MenuController : MonoBehaviour
     {
         m_RT = this.GetComponent<RectTransform>();
         m_RT.sizeDelta = new Vector2(Screen.width * this.transform.childCount, Screen.height);
+        m_RT.position = new Vector3(-Screen.width, m_RT.position.y, 0);
 
         m_scrollRect = this.transform.parent.GetComponent<ScrollRect>();
+
 
         m_destination = Vector3.one;
     }
@@ -47,5 +49,17 @@ public class MenuController : MonoBehaviour
     public void DragStart()
     {
         m_destination = Vector3.one;
+    }
+
+    public void LevelSelect()
+    {
+        m_scrollRect.velocity = Vector2.zero;
+        m_destination = new Vector3(-Screen.width * 2, m_RT.position.y, 0); 
+    }
+
+    public void CreditsSelect()
+    {
+        m_scrollRect.velocity = Vector2.zero;
+        m_destination = new Vector3(0, m_RT.position.y, 0); 
     }
 }
