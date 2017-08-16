@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 862a6a0fa38dc244caa0c3593a1a95ce
-timeCreated: 1502921023
+timeCreated: 1502925395
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -131,9 +131,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 186
-        y: 1366
-        width: 162
-        height: 221
+        y: 1367
+        width: 161
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,9 +144,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 360
-        y: 1366
-        width: 103
-        height: 221
+        y: 1367
+        width: 102
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: PipeSprites_3
       rect:
         serializedVersion: 2
-        x: 476
+        x: 477
         y: 1366
-        width: 221
-        height: 221
+        width: 220
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +171,7 @@ TextureImporter:
         serializedVersion: 2
         x: 713
         y: 1413
-        width: 133
+        width: 132
         height: 174
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -182,10 +182,10 @@ TextureImporter:
       name: PipeSprites_5
       rect:
         serializedVersion: 2
-        x: 860
-        y: 1195
-        width: 104
-        height: 392
+        x: 861
+        y: 1147
+        width: 102
+        height: 440
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +195,10 @@ TextureImporter:
       name: PipeSprites_6
       rect:
         serializedVersion: 2
-        x: 974
-        y: 1195
-        width: 103
-        height: 392
+        x: 973
+        y: 1147
+        width: 102
+        height: 440
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +223,8 @@ TextureImporter:
         serializedVersion: 2
         x: 186
         y: 1134
-        width: 162
-        height: 221
+        width: 161
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +236,8 @@ TextureImporter:
         serializedVersion: 2
         x: 360
         y: 1134
-        width: 103
-        height: 221
+        width: 102
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,9 +248,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 476
-        y: 1134
-        width: 221
-        height: 221
+        y: 1135
+        width: 220
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,7 +262,7 @@ TextureImporter:
         serializedVersion: 2
         x: 710
         y: 1181
-        width: 133
+        width: 132
         height: 174
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
