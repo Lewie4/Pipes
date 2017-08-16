@@ -34,15 +34,17 @@ public class MenuController : MonoBehaviour
 
     public void DragEnd()
     {
-        if ((Screen.width + m_RT.position.x) % Screen.width < (Screen.width - m_RT.position.x) % Screen.width)
+        float mod = ((m_RT.position.x % Screen.width) + Screen.width) % Screen.width;
+
+        if (mod < (Screen.width / 2))
         {
             m_scrollRect.velocity = Vector2.zero;
-            m_destination = new Vector3(m_RT.position.x - ((Screen.width + m_RT.position.x) % Screen.width), m_RT.position.y, 0);
+            m_destination = new Vector3(m_RT.position.x - mod, m_RT.position.y, 0);
         }
         else
         {
             m_scrollRect.velocity = Vector2.zero;
-            m_destination = new Vector3(m_RT.position.x + ((Screen.width - m_RT.position.x) % Screen.width), m_RT.position.y, 0);
+            m_destination = new Vector3(m_RT.position.x - (m_RT.position.x % Screen.width), m_RT.position.y, 0);
         }
     }
 
