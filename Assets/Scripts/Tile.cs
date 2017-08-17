@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tile : MonoBehaviour 
+public class Tile : MonoBehaviour
 {
     public enum TileType
     {
         Empty,
-        Corner, 
-        Line, 
-        Cross, 
+        Corner,
+        Line,
+        Cross,
         Threeway,
-        DeadEnd
-    };
+        DeadEnd}
+
+    ;
 
     [System.Serializable]
     public class TileProperties
