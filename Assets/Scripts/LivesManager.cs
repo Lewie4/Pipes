@@ -6,6 +6,8 @@ using System;
 
 public class LivesManager : MonoBehaviour
 {
+    [SerializeField] private GameObject m_addLives;
+    
     [SerializeField] private Sprite m_fullHeart;
     [SerializeField] private Sprite m_emptyHeart;
 
@@ -40,9 +42,11 @@ public class LivesManager : MonoBehaviour
 
     private void SetupHearts()
     {
+        currentLives = GameManager.Instance.GetCurrentLives();
+
         for (int i = 0; i < GameManager.Instance.GetMaxLives(); i++)
         {
-            if (i < m_hearts.Count && i < GameManager.Instance.GetCurrentLives())
+            if (i < m_hearts.Count && i < currentLives)
             {
                 m_hearts[i].sprite = m_fullHeart;
             }
@@ -52,7 +56,7 @@ public class LivesManager : MonoBehaviour
             }
         }
 
-        currentLives = GameManager.Instance.GetCurrentLives();
+        m_addLives.SetActive(currentLives < GameManager.Instance.GetMaxLives());
     }
 
     public void SpendLives(int lives)
