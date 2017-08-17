@@ -56,7 +56,10 @@ public class LivesManager : MonoBehaviour
             }
         }
 
-        m_addLives.SetActive(currentLives < GameManager.Instance.GetMaxLives());
+        if (m_addLives != null)
+        {
+            m_addLives.SetActive(currentLives < GameManager.Instance.GetMaxLives());
+        }
     }
 
     public void SpendLives(int lives)

@@ -169,6 +169,7 @@ public class GameManager : MonoBehaviour
             if (m_currentLives > m_maxLives)
             {
                 m_currentLives = m_maxLives;
+                m_timeLivesSpent = 0;
             }
 
             PlayerPrefs.SetInt("CurrentLives", m_currentLives);
@@ -193,7 +194,11 @@ public class GameManager : MonoBehaviour
     public void SpendLives(int num)
     {
         m_currentLives -= num;
-        m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
+
+        if (m_timeLivesSpent == 0)
+        {
+            m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
+        }
 
         if (m_currentLives < 0)
         {
