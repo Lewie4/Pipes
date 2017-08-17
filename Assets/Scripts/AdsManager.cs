@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Events;
 
 public class AdsManager : MonoBehaviour
 {
     public static AdsManager Instance = null;
+
+    private UnityEvent m_rewardCompleteActions;
 
     private int m_adChance = 10;
 
@@ -37,10 +40,11 @@ public class AdsManager : MonoBehaviour
         return false;
     }
 
-    public void ShowRewardedAd()
+    public void ShowRewardedAd(UnityEvent actions = null)
     {
         if (Advertisement.IsReady("rewardedVideo"))
         {
+            m_rewardCompleteActions = actions;
             var options = new ShowOptions { resultCallback = HandleShowResult };
             Advertisement.Show("rewardedVideo", options);
             Time.timeScale = 0;
@@ -72,6 +76,8 @@ public class AdsManager : MonoBehaviour
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
                 GameManager.Instance.GainLives(1);
+                m_rewardCompleteActions.Invoke();
+                m_rewardCompleteActions = null;
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");

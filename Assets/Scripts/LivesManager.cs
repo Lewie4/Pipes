@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Events;
 
 public class LivesManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class LivesManager : MonoBehaviour
     [SerializeField] private List<Image> m_hearts = new List<Image>();
 
     [SerializeField] private Text m_timerText;
+
+    [SerializeField] private UnityEvent m_rewardCompleteActions;
 
     private int currentLives = 0;
 
@@ -69,6 +72,6 @@ public class LivesManager : MonoBehaviour
 
     public void WatchAdForLife()
     {
-        AdsManager.Instance.ShowRewardedAd();
+        AdsManager.Instance.ShowRewardedAd(m_rewardCompleteActions);
     }
 }

@@ -88,6 +88,7 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private bool m_hasLost = false;
     [SerializeField] private List<GameObject> m_gameLostObjects = new List<GameObject>();
+    private bool m_lostPopupDisplayed = false;
 
     private int m_currentLevel = 0;
 
@@ -458,16 +459,17 @@ public class TileManager : MonoBehaviour
         }
         else
         {
-            if (m_gameLostObjects != null)
+            if (m_gameLostObjects != null && !m_lostPopupDisplayed)
             {
                 for (int i = 0; i < m_gameLostObjects.Count; i++)
                 {
                     if (!m_gameLostObjects[i].activeSelf)
                     {
                         m_gameLostObjects[i].SetActive(true);
-                        SendLevelFailedAnalytic();
+                        m_lostPopupDisplayed = true;
                     }
                 }
+                SendLevelFailedAnalytic();
             }
         }
     }
