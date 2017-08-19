@@ -12,6 +12,8 @@ public class MenuController : MonoBehaviour
 
     private Vector3 m_destination;
 
+    [SerializeField] private TopBarController m_topBarController;
+
     private void Awake()
     {
         m_RT = this.GetComponent<RectTransform>();
@@ -48,6 +50,18 @@ public class MenuController : MonoBehaviour
         {
             m_scrollRect.velocity = Vector2.zero;
             m_destination = new Vector3(m_RT.position.x - (m_RT.position.x % Screen.width), m_RT.position.y, 0);
+        }
+
+        if (m_topBarController != null)
+        {
+            if (m_destination.x >= 0 || m_destination.x <= -(Screen.width * 2))
+            {
+                m_topBarController.SetHomeButton(true); 
+            }
+            else
+            {
+                m_topBarController.SetHomeButton(false);
+            }
         }
     }
 
