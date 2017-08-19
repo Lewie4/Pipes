@@ -25,7 +25,7 @@ public class AdsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale == 0 && !Advertisement.isShowing)
+        if (Time.timeScale == 0 && !Advertisement.isShowing && !DebugController.Instance.m_active)
         {
             Time.timeScale = 1;
         }

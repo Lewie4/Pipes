@@ -578,4 +578,34 @@ public class TileManager : MonoBehaviour
 
         Analytics.CustomEvent("LevelFailed", eventData);
     }
+
+    public void LoadLevelFromGame(int level)
+    {
+        ClearCurrentLevel();
+        LoadLevel(level);
+    }
+
+    public void ClearCurrentLevel()
+    {
+        foreach (Transform child in m_boardContainter.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in m_topContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in m_leftContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in m_rightContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in m_bottomContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
 }
