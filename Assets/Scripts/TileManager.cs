@@ -153,6 +153,9 @@ public class TileManager : MonoBehaviour
         else
         {
             Debug.LogError("Level out of range!");
+
+            GameManager.Instance.SetCurrentLevel(m_levels.Count - 1);
+            LoadLevel(GameManager.Instance.GetCurrentLevel());
         }
     }
 
