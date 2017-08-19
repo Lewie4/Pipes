@@ -28,6 +28,7 @@ public class TileManager : MonoBehaviour
         public List<Tile> m_bottomTiles = new List<Tile>();
         public float m_timeToStart = 30f;
         public float m_timeToFill = 3f;
+        public string m_levelDifficulty = "Medium";
     }
 
     [System.Serializable]
@@ -81,6 +82,8 @@ public class TileManager : MonoBehaviour
     private float m_startFillTime = 0;
     private float m_currentFillTime = 0;
 
+    private string m_levelDifficulty = "Medium";
+
     private int m_numTotalEndPipes = 0;
     private int m_numFullEndPipes = 0;
 
@@ -92,7 +95,8 @@ public class TileManager : MonoBehaviour
     private bool m_hasLostSet = false;
     [SerializeField] private List<GameObject> m_gameLostObjects = new List<GameObject>();
 
-    private int m_currentLevel = 0;
+    private bool m_hasLevelStarted = false;
+    [SerializeField] private GameObject m_levelInfoPopup;
 
     private void Awake()
     {
@@ -112,18 +116,19 @@ public class TileManager : MonoBehaviour
     {
         if (level < m_levels.Count)
         {
-            m_currentLevel = level;
-
             m_hasLost = false;
             m_hasWon = false;
             m_hasWonSet = false;
             m_hasLostSet = false;
+            m_hasLevelStarted = false;
 
             m_isFilling = false;
             m_startFillTime = 0;
             m_currentFillTime = 0;
             m_timeToStart = m_levels[level].m_timeToStart;
             m_timeToFill = m_levels[level].m_timeToFill;
+            m_levelDifficulty = m_levels[level].m_levelDifficulty;
+
             m_gameBoard = new List<Column>();
             foreach (Column col in m_levels[level].m_board)
             {
@@ -142,6 +147,8 @@ public class TileManager : MonoBehaviour
             PositionLeftTiles();
             PositionRightTiles();
             PositionBottomTiles();
+
+            m_levelInfoPopup.SetActive(true); 
         }
         else
         {
@@ -316,179 +323,182 @@ public class TileManager : MonoBehaviour
 
     private void Update()
     {
-        if (!m_hasLost)
+        if (m_hasLevelStarted)
         {
-            if (m_hasWon && !m_hasWonSet && m_pipesToFill.Count == 0)
+            if (!m_hasLost)
             {
-                m_hasWonSet = true;
-                if (m_gameWonObjects != null)
+                if (m_hasWon && !m_hasWonSet && m_pipesToFill.Count == 0)
                 {
-                    for (int i = 0; i < m_gameWonObjects.Count; i++)
+                    m_hasWonSet = true;
+                    if (m_gameWonObjects != null)
                     {
-                        if (!m_gameWonObjects[i].activeSelf)
+                        for (int i = 0; i < m_gameWonObjects.Count; i++)
                         {
-                            m_gameWonObjects[i].SetActive(true);
+                            if (!m_gameWonObjects[i].activeSelf)
+                            {
+                                m_gameWonObjects[i].SetActive(true);
 
-                            SendLevelCompletedAnalytic();
+                                SendLevelCompletedAnalytic();
 
-                            GameManager.Instance.GainLives(1);
+                                GameManager.Instance.GainLives(1);
+                            }
                         }
                     }
                 }
-            }
-            else if (!m_hasWon)
-            {
-                if (m_isFilling)
+                else if (!m_hasWon)
                 {
-                    if (m_currentFillTime >= m_timeToFill)
+                    if (m_isFilling)
                     {
-                        m_currentFillTime = 0;
-
-                        int currentFillCount = m_pipesToFill.Count;
-
-                        if (currentFillCount > 0)
+                        if (m_currentFillTime >= m_timeToFill)
                         {
-                            for (int i = 0; i < currentFillCount; i++)
-                            {      
-                                bool endFilled = false;
+                            m_currentFillTime = 0;
 
-                                if (m_pipesToFill[i].m_location.y < 0)
-                                {
-                                    int current = (int)m_pipesToFill[i].m_location.x;
-                                    if (m_bottomTiles[current] != null)
-                                    {
-                                        m_bottomTiles[current].PipeFill();
-                                        endFilled = true;
-                                        m_numFullEndPipes++;
-                                    }
-                                    else
-                                    {
-                                        m_hasLost = true;
-                                    }
-                                }
-                                else if (m_pipesToFill[i].m_location.x < 0)
-                                {
-                                    int current = (int)m_pipesToFill[i].m_location.y;
-                                    if (m_leftTiles[current] != null)
-                                    {
-                                        m_leftTiles[current].PipeFill();
-                                        endFilled = true;
-                                        m_numFullEndPipes++;
-                                    }
-                                    else
-                                    {
-                                        m_hasLost = true;
-                                    }
-                                }
-                                else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
-                                {
-                                    int current = (int)m_pipesToFill[i].m_location.y;
-                                    if (m_rightTiles[current] != null)
-                                    {
-                                        m_rightTiles[current].PipeFill();
-                                        endFilled = true;
-                                        m_numFullEndPipes++;
-                                    }
-                                    else
-                                    {
-                                        m_hasLost = true;
-                                    }
-                                }
-                                else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
-                                {
-                                    int current = (int)m_pipesToFill[i].m_location.x;
-                                    if (m_topTiles[current] != null)
-                                    {
-                                        m_topTiles[current].PipeFill();
-                                        endFilled = true;
-                                        m_numFullEndPipes++;
-                                    }
-                                    else
-                                    {
-                                        m_hasLost = true;
-                                    }
-                                }
+                            int currentFillCount = m_pipesToFill.Count;
 
-                                if (m_numFullEndPipes == m_numTotalEndPipes)
-                                {
-                                    m_hasWon = true;
-                                }
+                            if (currentFillCount > 0)
+                            {
+                                for (int i = 0; i < currentFillCount; i++)
+                                {      
+                                    bool endFilled = false;
 
-                                if (!m_hasLost && !endFilled)
-                                {
-                                    Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
-                                    if (currentTile != null)
+                                    if (m_pipesToFill[i].m_location.y < 0)
                                     {
-                                        if (!currentTile.GetIsFull())
+                                        int current = (int)m_pipesToFill[i].m_location.x;
+                                        if (m_bottomTiles[current] != null)
                                         {
-                                            if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
-                                            {                                    
-                                                currentTile.PipeFill();
+                                            m_bottomTiles[current].PipeFill();
+                                            endFilled = true;
+                                            m_numFullEndPipes++;
+                                        }
+                                        else
+                                        {
+                                            m_hasLost = true;
+                                        }
+                                    }
+                                    else if (m_pipesToFill[i].m_location.x < 0)
+                                    {
+                                        int current = (int)m_pipesToFill[i].m_location.y;
+                                        if (m_leftTiles[current] != null)
+                                        {
+                                            m_leftTiles[current].PipeFill();
+                                            endFilled = true;
+                                            m_numFullEndPipes++;
+                                        }
+                                        else
+                                        {
+                                            m_hasLost = true;
+                                        }
+                                    }
+                                    else if (m_pipesToFill[i].m_location.x >= m_gameBoard.Count)
+                                    {
+                                        int current = (int)m_pipesToFill[i].m_location.y;
+                                        if (m_rightTiles[current] != null)
+                                        {
+                                            m_rightTiles[current].PipeFill();
+                                            endFilled = true;
+                                            m_numFullEndPipes++;
+                                        }
+                                        else
+                                        {
+                                            m_hasLost = true;
+                                        }
+                                    }
+                                    else if (m_pipesToFill[i].m_location.y >= m_gameBoard.Count)
+                                    {
+                                        int current = (int)m_pipesToFill[i].m_location.x;
+                                        if (m_topTiles[current] != null)
+                                        {
+                                            m_topTiles[current].PipeFill();
+                                            endFilled = true;
+                                            m_numFullEndPipes++;
+                                        }
+                                        else
+                                        {
+                                            m_hasLost = true;
+                                        }
+                                    }
 
-                                                CheckTop(i);
-                                                CheckLeft(i);
-                                                CheckRight(i);
-                                                CheckBottom(i);
+                                    if (m_numFullEndPipes == m_numTotalEndPipes)
+                                    {
+                                        m_hasWon = true;
+                                    }
+
+                                    if (!m_hasLost && !endFilled)
+                                    {
+                                        Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
+                                        if (currentTile != null)
+                                        {
+                                            if (!currentTile.GetIsFull())
+                                            {
+                                                if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
+                                                {                                    
+                                                    currentTile.PipeFill();
+
+                                                    CheckTop(i);
+                                                    CheckLeft(i);
+                                                    CheckRight(i);
+                                                    CheckBottom(i);
+                                                }
+                                                else
+                                                {
+                                                    m_hasLost = true;
+                                                }
                                             }
                                             else
                                             {
-                                                m_hasLost = true;
+                                                if (!CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
+                                                {
+                                                    m_hasLost = true;
+                                                }
                                             }
                                         }
                                         else
                                         {
-                                            if (!CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
-                                            {
-                                                m_hasLost = true;
-                                            }
+                                            m_hasLost = true;
                                         }
                                     }
-                                    else
-                                    {
-                                        m_hasLost = true;
-                                    }
                                 }
-                            }
 
-                            m_pipesToFill.RemoveRange(0, currentFillCount);
+                                m_pipesToFill.RemoveRange(0, currentFillCount);
+                            }
+                            else
+                            {
+                                m_hasLost = true;
+                            }
                         }
                         else
                         {
-                            m_hasLost = true;
+                            m_currentFillTime += Time.deltaTime;
                         }
                     }
                     else
                     {
-                        m_currentFillTime += Time.deltaTime;
-                    }
-                }
-                else
-                {
-                    if (m_startFillTime < m_timeToStart)
-                    {
-                        m_startFillTime += Time.deltaTime;
-                    }
-                    else
-                    {
-                        m_isFilling = true;
-                        m_currentFillTime = m_timeToFill;
+                        if (m_startFillTime < m_timeToStart)
+                        {
+                            m_startFillTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            m_isFilling = true;
+                            m_currentFillTime = m_timeToFill;
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            if (m_gameLostObjects != null && !m_hasLostSet)
+            else
             {
-                m_hasLostSet = true;
-                for (int i = 0; i < m_gameLostObjects.Count; i++)
+                if (m_gameLostObjects != null && !m_hasLostSet)
                 {
-                    if (!m_gameLostObjects[i].activeSelf)
+                    m_hasLostSet = true;
+                    for (int i = 0; i < m_gameLostObjects.Count; i++)
                     {
-                        m_gameLostObjects[i].SetActive(true);
+                        if (!m_gameLostObjects[i].activeSelf)
+                        {
+                            m_gameLostObjects[i].SetActive(true);
+                        }
                     }
+                    SendLevelFailedAnalytic();
                 }
-                SendLevelFailedAnalytic();
             }
         }
     }
@@ -563,6 +573,16 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    public int GetBoardSize()
+    {
+        return m_gameBoard.Count;
+    }
+
+    public string GetLevelDifficulty()
+    {
+        return m_levelDifficulty;
+    }
+
     public void FastForward()
     {
         m_timeToStart = 0;
@@ -577,6 +597,11 @@ public class TileManager : MonoBehaviour
     public float GetStartFillTime()
     {
         return m_startFillTime;
+    }
+
+    public void SetHasLevelStarted(bool started)
+    {
+        m_hasLevelStarted = started;
     }
 
     public void SendLevelCompletedAnalytic()

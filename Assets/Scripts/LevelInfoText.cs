@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelText : MonoBehaviour 
+public class LevelInfoText : MonoBehaviour 
 {
     [SerializeField] private Text m_text;
 
@@ -17,15 +17,17 @@ public class LevelText : MonoBehaviour
         }
     }
 
-	private void Update () 
+    private void Update () 
     {
         if (currentLevel != GameManager.Instance.GetCurrentLevel())
         {
             currentLevel = GameManager.Instance.GetCurrentLevel();
             if (m_text != null)
             {
-                m_text.text = "Level " + (currentLevel + 1).ToString();
+                m_text.text = "Difficulty:\n" + TileManager.Instance.GetLevelDifficulty() + "\n" +
+                    "Board size:\n" + TileManager.Instance.GetBoardSize().ToString() + "x" + TileManager.Instance.GetBoardSize().ToString() + "\n" +
+                    "Water flows in:\n" + TileManager.Instance.GetTimeToStart().ToString() + " sec";
             }
         }
-	}
+    }
 }
