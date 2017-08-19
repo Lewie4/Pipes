@@ -11,7 +11,7 @@ public class MenuLevelController : MonoBehaviour
     {
         int count = 0;
 
-        int unlockedLevel = PlayerPrefs.GetInt("ProgressLevel", 0);
+        int unlockedLevel = PlayerPrefs.GetInt("ProgressLevel", 0) + 1;
 
         for (int i = 0; i < m_levelContainers.Count; i++)
         {
