@@ -64,6 +64,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] private GameObject m_bottomContainer;
     [SerializeField] private List<Tile> m_bottomTiles = new List<Tile>();
 
+    [SerializeField] private GameObject m_boardContainter;
     [SerializeField] private List<Column> m_gameBoard = new List<Column>();
     private float m_tileSize = 220f;
 
@@ -156,6 +157,8 @@ public class TileManager : MonoBehaviour
             RT.position = new Vector3(mod, diff / 2, 0);
         }
         RT.anchoredPosition3D = new Vector3((parentSize.x - RT.sizeDelta.x) / 2, (parentSize.y - RT.sizeDelta.y) / 2, 0);
+
+        m_boardContainter.GetComponent<RectTransform>().sizeDelta = RT.sizeDelta;
     }
 
     private void PositionTiles()
@@ -171,7 +174,7 @@ public class TileManager : MonoBehaviour
             {
                 if (m_levels[m_currentLevel].m_board[i].m_column[j] != null)
                 {
-                    var currentTile = Instantiate(m_levels[m_currentLevel].m_board[i].m_column[j], this.transform);
+                    var currentTile = Instantiate(m_levels[m_currentLevel].m_board[i].m_column[j], m_boardContainter.transform);
                     m_gameBoard[i].m_column[j] = currentTile;
                     m_gameBoard[i].m_column[j].transform.localPosition = new Vector3(m_halfScale + (i * m_scale), m_halfScale + (j * m_scale), 0);
                     m_gameBoard[i].m_column[j].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);

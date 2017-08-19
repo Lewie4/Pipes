@@ -26,25 +26,25 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            #if !UNITY_EDITOR
+            m_currentLevel = PlayerPrefs.GetInt("ProgressLevel", 0);
+            #endif
+
+            m_currentLives = PlayerPrefs.GetInt("CurrentLives", m_maxLives);
+            m_timeLivesSpent = PlayerPrefs.GetInt("TimeLivesSpent", 0);
+
+            var localTime = LocalTime();
+            var networkTime = GetNetworkTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
+
+            m_timeOffset = localTime - networkTime;
+
+            CheckLives();
         }
         else if (Instance != this)
         {
             Destroy(this.gameObject);
         }
-
-        #if !UNITY_EDITOR
-        m_currentLevel = PlayerPrefs.GetInt("ProgressLevel", 0);
-        #endif
-
-        m_currentLives = PlayerPrefs.GetInt("CurrentLives", m_maxLives);
-        m_timeLivesSpent = PlayerPrefs.GetInt("TimeLivesSpent", 0);
-
-        var localTime = LocalTime();
-        var networkTime = GetNetworkTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
-
-        m_timeOffset = localTime - networkTime;
-
-        CheckLives();
     }
 
     private void Update()
