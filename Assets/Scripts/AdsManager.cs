@@ -8,7 +8,7 @@ public class AdsManager : MonoBehaviour
 
     private UnityEvent m_rewardCompleteActions;
 
-    private int m_adChance = 100;
+    private int m_adChance = 10;
 
     private void Awake()
     {
