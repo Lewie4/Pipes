@@ -348,7 +348,7 @@ public class TileManager : MonoBehaviour
                         }
                     }
                 }
-                else if (!m_hasWon)
+                else if (!m_hasWon || m_pipesToFill.Count != 0)
                 {
                     if (m_isFilling)
                     {
