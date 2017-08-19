@@ -42,5 +42,15 @@ public class DebugController : MonoBehaviour
     {
         TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
     }
+
+    public void WipeSave()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void UnlockAllLevels()
+    {
+        PlayerPrefs.SetInt("ProgressLevel", TileManager.Instance.m_levels.Count);
+    }
 }
 #endif
