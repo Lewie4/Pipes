@@ -336,7 +336,7 @@ public class TileManager : MonoBehaviour
                     }
                 }
             }
-            else
+            else if (!m_hasWon)
             {
                 if (m_isFilling)
                 {
