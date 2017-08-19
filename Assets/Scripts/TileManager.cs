@@ -97,6 +97,7 @@ public class TileManager : MonoBehaviour
 
     private bool m_hasLevelStarted = false;
     [SerializeField] private GameObject m_levelInfoPopup;
+    [SerializeField] private GameObject m_gameCompletedPopup;
 
     private void Awake()
     {
@@ -152,10 +153,11 @@ public class TileManager : MonoBehaviour
         }
         else
         {
+            m_gameCompletedPopup.SetActive(true);
             Debug.LogError("Level out of range!");
 
-            GameManager.Instance.SetCurrentLevel(m_levels.Count - 1);
-            LoadLevel(GameManager.Instance.GetCurrentLevel());
+            //GameManager.Instance.SetCurrentLevel(m_levels.Count - 1);
+            //LoadLevel(GameManager.Instance.GetCurrentLevel());
         }
     }
 
