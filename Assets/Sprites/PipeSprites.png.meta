@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 862a6a0fa38dc244caa0c3593a1a95ce
-timeCreated: 1502925395
+timeCreated: 1503160733
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,12 @@ TextureImporter:
     21300018: PipeSprites_9
     21300020: PipeSprites_10
     21300022: PipeSprites_11
+    21300024: PipeSprites_12
+    21300026: PipeSprites_13
+    21300028: PipeSprites_14
+    21300030: PipeSprites_15
+    21300032: PipeSprites_16
+    21300034: PipeSprites_17
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -169,7 +175,7 @@ TextureImporter:
       name: PipeSprites_4
       rect:
         serializedVersion: 2
-        x: 713
+        x: 712
         y: 1413
         width: 132
         height: 174
@@ -264,6 +270,84 @@ TextureImporter:
         y: 1181
         width: 132
         height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PipeSprites_12
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 956
+        width: 162
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PipeSprites_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 898
+        width: 161
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PipeSprites_14
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 898
+        width: 102
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PipeSprites_15
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 898
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PipeSprites_16
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 971
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PipeSprites_17
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 678
+        width: 102
+        height: 440
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
