@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(this.gameObject);
-        }
+        }          
     }
 
     private void Update()
@@ -53,6 +53,13 @@ public class GameManager : MonoBehaviour
         {
             CheckLives();
         }
+
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.D) && DebugController.Instance != null)
+        {
+            DebugController.Instance.gameObject.SetActive(!DebugController.Instance.gameObject.activeSelf);
+        }
+        #endif
     }
 
     public int GetCurrentLevel()

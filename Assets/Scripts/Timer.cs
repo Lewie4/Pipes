@@ -21,28 +21,28 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (m_currentAmount != TileManager.Instance.GetStartFillTime())
+        {
+            m_currentAmount = TileManager.Instance.GetStartFillTime();
+            m_goSet = false;
+        }
+
         if (!m_goSet)
         {
             if (m_timeToStart != TileManager.Instance.GetTimeToStart())
             {
                 m_timeToStart = TileManager.Instance.GetTimeToStart();
             }
-
-            if (m_currentAmount != TileManager.Instance.GetStartFillTime())
-            {
-                m_currentAmount = TileManager.Instance.GetStartFillTime();
-            }
-
             if (m_currentAmount < m_timeToStart)
-                {
+            {
                 m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
-                }
-                else
-                {
-                    m_textIndicator.text = "GO!";
-                    m_goSet = true;
-                }
-                m_loadingbar.fillAmount = m_currentAmount / m_timeToStart;
+            }
+            else
+            {
+                m_textIndicator.text = "GO!";
+                m_goSet = true;
+            }
+            m_loadingbar.fillAmount = m_currentAmount / m_timeToStart;
         }
     }
 }

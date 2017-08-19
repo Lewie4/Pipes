@@ -51,7 +51,7 @@ public class LoadSceneManager : MonoBehaviour
                 AdsManager.Instance.ShowInterstitialAd();
             }
 
-            LoadGameLevel(GameManager.Instance.GetCurrentLevel());
+            TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
         }
         else
         {
@@ -67,7 +67,7 @@ public class LoadSceneManager : MonoBehaviour
         }
 
         GameManager.Instance.UnlockNextLevel();
-        LoadGameLevel(GameManager.Instance.GetCurrentLevel());
+        TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
     }
 
     public void SendLevelStartedAnalytic()

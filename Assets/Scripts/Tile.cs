@@ -33,6 +33,14 @@ public class Tile : MonoBehaviour
     [SerializeField] private Sprite m_emptyImage;
     [SerializeField] private Sprite m_fullImage;
 
+    public Tile(Tile tile)
+    {
+        m_tileProperties = tile.m_tileProperties;
+        m_pipeImage = tile.m_pipeImage;
+        m_emptyImage = tile.m_emptyImage;
+        m_fullImage = tile.m_fullImage;
+    }
+
     public void PipeFill()
     {
         m_pipeImage.sprite = m_fullImage;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,4 +37,10 @@ public class DebugController : MonoBehaviour
     {
         TileManager.Instance.ClearCurrentLevel();
     }
+
+    public void ReloadLevel()
+    {
+        TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
+    }
 }
+#endif

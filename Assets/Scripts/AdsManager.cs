@@ -8,7 +8,7 @@ public class AdsManager : MonoBehaviour
 
     private UnityEvent m_rewardCompleteActions;
 
-    private int m_adChance = 10;
+    private int m_adChance = 100;
 
     private void Awake()
     {
@@ -25,9 +25,16 @@ public class AdsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale == 0 && !Advertisement.isShowing && !DebugController.Instance.m_active)
+        if (Time.timeScale == 0 && !Advertisement.isShowing)
         {
+            #if UNITY_EDITOR
+            if (DebugController.Instance != null && !DebugController.Instance.m_active)
+            {
+                Time.timeScale = 1;
+            }
+            #else
             Time.timeScale = 1;
+            #endif
         }
     }
 

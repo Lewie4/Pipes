@@ -85,11 +85,12 @@ public class TileManager : MonoBehaviour
     private int m_numFullEndPipes = 0;
 
     [SerializeField] private bool m_hasWon = false;
+    private bool m_hasWonSet = false;
     [SerializeField] private List<GameObject> m_gameWonObjects = new List<GameObject>();
 
     [SerializeField] private bool m_hasLost = false;
+    private bool m_hasLostSet = false;
     [SerializeField] private List<GameObject> m_gameLostObjects = new List<GameObject>();
-    private bool m_lostPopupDisplayed = false;
 
     private int m_currentLevel = 0;
 
@@ -113,13 +114,27 @@ public class TileManager : MonoBehaviour
         {
             m_currentLevel = level;
 
+            m_hasLost = false;
+            m_hasWon = false;
+            m_hasWonSet = false;
+            m_hasLostSet = false;
+
+            m_isFilling = false;
+            m_startFillTime = 0;
+            m_currentFillTime = 0;
             m_timeToStart = m_levels[level].m_timeToStart;
             m_timeToFill = m_levels[level].m_timeToFill;
-            m_gameBoard = m_levels[level].m_board;
-            m_topTiles = m_levels[level].m_topTiles;
-            m_leftTiles = m_levels[level].m_leftTiles;
-            m_rightTiles = m_levels[level].m_rightTiles;
-            m_bottomTiles = m_levels[level].m_bottomTiles;
+            m_gameBoard = new List<Column>();
+            foreach (Column col in m_levels[level].m_board)
+            {
+                Column temp = new Column();
+                temp.m_column = new List<Tile>(col.m_column);
+                m_gameBoard.Add(temp);
+            }
+            m_topTiles = new List<Tile>(m_levels[level].m_topTiles);
+            m_leftTiles = new List<Tile>(m_levels[level].m_leftTiles);
+            m_rightTiles = new List<Tile>(m_levels[level].m_rightTiles);
+            m_bottomTiles = new List<Tile>(m_levels[level].m_bottomTiles);
 
             SetBoardSize();
             PositionTiles();
@@ -168,13 +183,13 @@ public class TileManager : MonoBehaviour
 
         m_sizeScale = m_scale / m_tileSize;
 
-        for (int i = 0; i < m_levels[m_currentLevel].m_board.Count; i++)
+        for (int i = 0; i < m_gameBoard.Count; i++)
         {
-            for (int j = 0; j < m_levels[m_currentLevel].m_board[i].m_column.Count; j++)
+            for (int j = 0; j < m_gameBoard[i].m_column.Count; j++)
             {
-                if (m_levels[m_currentLevel].m_board[i].m_column[j] != null)
+                if (m_gameBoard[i].m_column[j] != null)
                 {
-                    var currentTile = Instantiate(m_levels[m_currentLevel].m_board[i].m_column[j], m_boardContainter.transform);
+                    var currentTile = Instantiate(m_gameBoard[i].m_column[j], m_boardContainter.transform);
                     m_gameBoard[i].m_column[j] = currentTile;
                     m_gameBoard[i].m_column[j].transform.localPosition = new Vector3(m_halfScale + (i * m_scale), m_halfScale + (j * m_scale), 0);
                     m_gameBoard[i].m_column[j].transform.localScale = new Vector3(m_sizeScale, m_sizeScale, 0);
@@ -189,11 +204,11 @@ public class TileManager : MonoBehaviour
         topRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale * 2);
         float currentX = -topRT.sizeDelta.x / 2;
 
-        for (int i = 0; i < m_levels[m_currentLevel].m_topTiles.Count; i++)
+        for (int i = 0; i < m_topTiles.Count; i++)
         {
-            if (m_levels[m_currentLevel].m_topTiles[i] != null)
+            if (m_topTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[m_currentLevel].m_topTiles[i], m_topContainer.transform);
+                var currentTile = Instantiate(m_topTiles[i], m_topContainer.transform);
                 m_topTiles[i] = currentTile;
 
                 m_topTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), m_scale, 0);
@@ -218,11 +233,11 @@ public class TileManager : MonoBehaviour
         leftRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.y);
         float currentY = -leftRT.sizeDelta.y / 2;
 
-        for (int i = 0; i < m_levels[m_currentLevel].m_leftTiles.Count; i++)
+        for (int i = 0; i < m_leftTiles.Count; i++)
         {
-            if (m_levels[m_currentLevel].m_leftTiles[i] != null)
+            if (m_leftTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[m_currentLevel].m_leftTiles[i], m_leftContainer.transform);
+                var currentTile = Instantiate(m_leftTiles[i], m_leftContainer.transform);
                 m_leftTiles[i] = currentTile;
 
                 m_leftTiles[i].transform.localPosition = new Vector3(-m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
@@ -247,11 +262,11 @@ public class TileManager : MonoBehaviour
         rightRT.sizeDelta = new Vector2(m_scale, RT.sizeDelta.y);
         float currentY = -rightRT.sizeDelta.y / 2;
 
-        for (int i = 0; i < m_levels[m_currentLevel].m_rightTiles.Count; i++)
+        for (int i = 0; i < m_rightTiles.Count; i++)
         {
-            if (m_levels[m_currentLevel].m_rightTiles[i] != null)
+            if (m_rightTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[m_currentLevel].m_rightTiles[i], m_rightContainer.transform);
+                var currentTile = Instantiate(m_rightTiles[i], m_rightContainer.transform);
                 m_rightTiles[i] = currentTile;
 
                 m_rightTiles[i].transform.localPosition = new Vector3(m_halfScale, currentY + m_halfScale + (i * m_scale), 0);
@@ -276,11 +291,11 @@ public class TileManager : MonoBehaviour
         bottomRT.sizeDelta = new Vector2(RT.sizeDelta.x, m_scale * 2);
         float currentX = -bottomRT.sizeDelta.x / 2;
 
-        for (int i = 0; i < m_levels[m_currentLevel].m_bottomTiles.Count; i++)
+        for (int i = 0; i < m_bottomTiles.Count; i++)
         {
-            if (m_levels[m_currentLevel].m_bottomTiles[i] != null)
+            if (m_bottomTiles[i] != null)
             {
-                var currentTile = Instantiate(m_levels[m_currentLevel].m_bottomTiles[i], m_bottomContainer.transform);
+                var currentTile = Instantiate(m_bottomTiles[i], m_bottomContainer.transform);
                 m_bottomTiles[i] = currentTile;
 
                 m_bottomTiles[i].transform.localPosition = new Vector3(currentX + m_halfScale + (i * m_scale), -m_scale, 0);
@@ -303,8 +318,9 @@ public class TileManager : MonoBehaviour
     {
         if (!m_hasLost)
         {
-            if (m_hasWon && m_pipesToFill.Count == 0)
+            if (m_hasWon && !m_hasWonSet && m_pipesToFill.Count == 0)
             {
+                m_hasWonSet = true;
                 if (m_gameWonObjects != null)
                 {
                     for (int i = 0; i < m_gameWonObjects.Count; i++)
@@ -462,14 +478,14 @@ public class TileManager : MonoBehaviour
         }
         else
         {
-            if (m_gameLostObjects != null && !m_lostPopupDisplayed)
+            if (m_gameLostObjects != null && !m_hasLostSet)
             {
+                m_hasLostSet = true;
                 for (int i = 0; i < m_gameLostObjects.Count; i++)
                 {
                     if (!m_gameLostObjects[i].activeSelf)
                     {
                         m_gameLostObjects[i].SetActive(true);
-                        m_lostPopupDisplayed = true;
                     }
                 }
                 SendLevelFailedAnalytic();
@@ -606,6 +622,31 @@ public class TileManager : MonoBehaviour
         foreach (Transform child in m_bottomContainer.transform)
         {
             GameObject.Destroy(child.gameObject);
+        }
+
+        m_hasLost = false;
+        m_hasWon = false;
+
+        if (m_gameWonObjects != null)
+        {
+            for (int i = 0; i < m_gameWonObjects.Count; i++)
+            {
+                if (m_gameWonObjects[i].activeSelf)
+                {
+                    m_gameWonObjects[i].SetActive(false);
+                }
+            }
+        }
+
+        if (m_gameLostObjects != null)
+        {
+            for (int i = 0; i < m_gameLostObjects.Count; i++)
+            {
+                if (m_gameLostObjects[i].activeSelf)
+                {
+                    m_gameLostObjects[i].SetActive(false);
+                }
+            }
         }
     }
 }
