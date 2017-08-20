@@ -28,16 +28,21 @@ public class AdsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale == 0 && !Advertisement.isShowing)
+        if (Time.timeScale == 0)
         {
-            #if UNITY_EDITOR
-            if (DebugController.Instance != null && !DebugController.Instance.m_active)
-            {
-                Time.timeScale = 1;
-            }
-            #else
-            Time.timeScale = 1;
+            #if UNITY_ADS 
+            if (!Advertisement.isShowing)
             #endif
+            {
+                #if UNITY_EDITOR
+                if (DebugController.Instance != null && !DebugController.Instance.m_active)
+                {
+                    Time.timeScale = 1;
+                }
+                #else
+                Time.timeScale = 1;
+                #endif
+            }
         }
     }
 
