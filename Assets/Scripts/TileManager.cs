@@ -341,13 +341,15 @@ public class TileManager : MonoBehaviour
                         {
                             if (!m_gameWonObjects[i].activeSelf)
                             {
-                                m_gameWonObjects[i].SetActive(true);
-
-                                SendLevelCompletedAnalytic();
-
-                                GameManager.Instance.GainLives(1);
+                                m_gameWonObjects[i].SetActive(true);                               
                             }
                         }
+
+                        GameManager.Instance.UnlockNextLevel();
+
+                        SendLevelCompletedAnalytic();
+
+                        GameManager.Instance.GainLives(1);
                     }
                 }
                 else if (!m_hasWon || m_pipesToFill.Count != 0)

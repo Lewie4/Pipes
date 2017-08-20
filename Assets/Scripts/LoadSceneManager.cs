@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class LoadSceneManager : MonoBehaviour
 {
+    [SerializeField] private UnityEvent m_enoughLives;
     [SerializeField] private UnityEvent m_notEnoughLives;
 
     public void LoadSceneByName(string sceneName)
@@ -19,7 +20,6 @@ public class LoadSceneManager : MonoBehaviour
         if (GameManager.Instance.GetCurrentLives() > 0)
         {
             GameManager.Instance.SetCurrentLevel(level);
-            SendLevelStartedAnalytic();
             SceneManager.LoadScene("Game");
         }
         else
@@ -33,7 +33,6 @@ public class LoadSceneManager : MonoBehaviour
         if (GameManager.Instance.GetCurrentLives() > 0)
         {
             GameManager.Instance.SetCurrentLevel(PlayerPrefs.GetInt("ProgressLevel", 0));
-            SendLevelStartedAnalytic();
             SceneManager.LoadScene("Game");
         }
         else
@@ -42,32 +41,29 @@ public class LoadSceneManager : MonoBehaviour
         }
     }
 
-    public void FailAndReloadLevel()
-    {
-        if (GameManager.Instance.GetCurrentLives() > 0)
-        {
-            if (AdsManager.Instance.CheckRandomInterstitialAd())
-            {
-                AdsManager.Instance.ShowInterstitialAd();
-            }
-
-            TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
-        }
-        else
-        {
-            m_notEnoughLives.Invoke();
-        }
-    }
-
-    public void UnlockAndLoadNextLevel()
+    public void LoadCurrentLevel()
     {
         if (AdsManager.Instance.CheckRandomInterstitialAd())
         {
             AdsManager.Instance.ShowInterstitialAd();
         }
 
-        GameManager.Instance.UnlockNextLevel();
         TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
+
+    }
+
+    public void StartLevel()
+    {
+        if (GameManager.Instance.GetCurrentLives() > 0)
+        {
+            SendLevelStartedAnalytic();
+            m_enoughLives.Invoke();
+            GameManager.Instance.SpendLives(1);
+        }
+        else
+        {
+            m_notEnoughLives.Invoke();
+        }
     }
 
     public void SendLevelStartedAnalytic()
