@@ -74,17 +74,20 @@ public class MenuController : MonoBehaviour
     {
         m_scrollRect.velocity = Vector2.zero;
         m_destination = new Vector3(-Screen.width * 2, m_RT.position.y, 0); 
+        m_topBarController.SetHomeButton(true); 
     }
 
     public void CreditsSelect()
     {
         m_scrollRect.velocity = Vector2.zero;
         m_destination = new Vector3(0, m_RT.position.y, 0); 
+        m_topBarController.SetHomeButton(true); 
     }
 
     public void HomeSelect()
     {
         m_scrollRect.velocity = Vector2.zero;
         m_destination = new Vector3(-Screen.width, m_RT.position.y, 0);
+        m_topBarController.SetHomeButton(false); 
     }
 }
