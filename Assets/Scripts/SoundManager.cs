@@ -15,6 +15,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private List<AudioClip> m_gameMusic;
     private int m_currentGameAudio = -1;
 
+    [SerializeField] private AudioClip m_buttonPressFX;
+
     private bool m_muted = false;
 
     private void Awake()
@@ -93,6 +95,15 @@ public class SoundManager : MonoBehaviour
                 StartCoroutine(FadeOut(m_menuMusicSource, 0.5f));
                 StartCoroutine(FadeIn(m_gameMusicSource, GetRandomAudio(m_gameMusic), 0.5f));   
             }
+        }
+    }
+
+    public void ButtonPress()
+    {
+        if (!m_muted)
+        {
+            m_FXSource.clip = m_buttonPressFX;
+            m_FXSource.Play();
         }
     }
 
