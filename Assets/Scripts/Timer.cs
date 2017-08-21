@@ -11,28 +11,57 @@ public class Timer : MonoBehaviour
     private float m_timeToStart;
     private float m_currentAmount;
     private bool m_goSet = false;
+    private bool m_inLevel = true;
 
-
-    void Start()
+    private void Start()
     {
-        m_timeToStart = TileManager.Instance.GetTimeToStart();
-        m_currentAmount = TileManager.Instance.GetStartFillTime();
+        if (TileManager.Instance != null)
+        {
+            m_timeToStart = TileManager.Instance.GetTimeToStart();
+            m_currentAmount = TileManager.Instance.GetStartFillTime();
+        }
+        else
+        {
+            m_inLevel = false;
+            m_timeToStart = 15;
+            m_currentAmount = 0;
+        }
     }
 
-    void Update()
+    private void OnEnable()
     {
-        if (m_currentAmount != TileManager.Instance.GetStartFillTime())
+        if (!m_inLevel)
         {
-            m_currentAmount = TileManager.Instance.GetStartFillTime();
-            m_goSet = false;
+            m_timeToStart = 15;
+            m_currentAmount = 0;  
+        }
+    }
+
+    private void Update()
+    {
+        if (m_inLevel)
+        {
+            if (m_currentAmount != TileManager.Instance.GetStartFillTime())
+            {
+                m_currentAmount = TileManager.Instance.GetStartFillTime();
+                m_goSet = false;
+            }
         }
 
         if (!m_goSet)
         {
-            if (m_timeToStart != TileManager.Instance.GetTimeToStart())
+            if (m_inLevel)
             {
-                m_timeToStart = TileManager.Instance.GetTimeToStart();
+                if (m_timeToStart != TileManager.Instance.GetTimeToStart())
+                {
+                    m_timeToStart = TileManager.Instance.GetTimeToStart();
+                }
             }
+            else
+            {
+                m_currentAmount += Time.deltaTime;
+            }
+
             if (m_currentAmount < m_timeToStart)
             {
                 m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
