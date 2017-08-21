@@ -124,6 +124,9 @@ public class TileManager : MonoBehaviour
             m_hasLevelStarted = false;
 
             m_pipesToFill = new List<PipesToFill>();
+            m_numFullEndPipes = 0;
+            m_numTotalEndPipes = 0;
+                
             m_isFilling = false;
             m_startFillTime = 0;
             m_currentFillTime = 0;
