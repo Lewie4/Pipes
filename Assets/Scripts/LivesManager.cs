@@ -33,10 +33,17 @@ public class LivesManager : MonoBehaviour
             SetupHearts();
         }
 
-        int livesTimer = GameManager.Instance.GetLivesTimer();
-        if (livesTimer > 0)
+        if (m_currentLives != GameManager.Instance.GetMaxLives())
         {
-            m_timerText.text = string.Format("{0}:{1}", ((int)(livesTimer / 60)).ToString("D2"), (livesTimer % 60).ToString("D2"));
+            int livesTimer = GameManager.Instance.GetLivesTimer();
+            if (livesTimer > 0)
+            {
+                m_timerText.text = string.Format("{0}:{1}", ((int)(livesTimer / 60)).ToString("D2"), (livesTimer % 60).ToString("D2"));
+            }
+            else
+            {
+                m_timerText.text = "Full!";
+            }
         }
         else
         {
