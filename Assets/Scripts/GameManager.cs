@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
             if (diff > m_timeToLivesRefil)
             {
                 m_currentLives += (int)(diff / m_timeToLivesRefil);
-                m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
+                m_timeLivesSpent = (int)((LocalTime() - m_timeOffset) - (diff % m_timeToLivesRefil));
 
                 if (m_currentLives >= m_maxLives)
                 {
