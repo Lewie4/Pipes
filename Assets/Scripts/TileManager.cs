@@ -50,6 +50,8 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private LivesManager m_livesManager;
+
     [Header("THE ACTUAL LEVELS")]
 
     public List<Level> m_levels = new List<Level>();
@@ -111,6 +113,11 @@ public class TileManager : MonoBehaviour
         }
         
         LoadLevel(GameManager.Instance.GetCurrentLevel());
+
+        if (m_livesManager == null)
+        {
+            m_livesManager = FindObjectOfType<LivesManager>();
+        }
     }
 
     public void LoadLevel(int level)
@@ -354,6 +361,7 @@ public class TileManager : MonoBehaviour
                         SendLevelCompletedAnalytic();
 
                         GameManager.Instance.GainLives(1);
+                        m_livesManager.SetFakeLevelLives(0);
                     }
                 }
                 else if (!m_hasWon || m_pipesToFill.Count != 0)
@@ -509,6 +517,7 @@ public class TileManager : MonoBehaviour
                         }
                     }
                     SendLevelFailedAnalytic();
+                    m_livesManager.SetFakeLevelLives(0);
                 }
             }
         }
@@ -613,6 +622,7 @@ public class TileManager : MonoBehaviour
     public void SetHasLevelStarted(bool started)
     {
         m_hasLevelStarted = started;
+        m_livesManager.SetFakeLevelLives(1);
     }
 
     public void SendLevelCompletedAnalytic()

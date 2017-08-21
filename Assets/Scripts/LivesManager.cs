@@ -18,7 +18,8 @@ public class LivesManager : MonoBehaviour
 
     [SerializeField] private UnityEvent m_rewardCompleteActions;
 
-    private int currentLives = 0;
+    private int m_currentLives = 0;
+    private int m_fakeLevelLives = 0;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class LivesManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentLives != GameManager.Instance.GetCurrentLives())
+        if (m_currentLives != GameManager.Instance.GetCurrentLives())
         {
             SetupHearts();
         }
@@ -45,11 +46,13 @@ public class LivesManager : MonoBehaviour
 
     private void SetupHearts()
     {
-        currentLives = GameManager.Instance.GetCurrentLives();
+        m_currentLives = GameManager.Instance.GetCurrentLives();
+
+        m_currentLives += m_fakeLevelLives;
 
         for (int i = 0; i < GameManager.Instance.GetMaxLives(); i++)
         {
-            if (i < m_hearts.Count && i < currentLives)
+            if (i < m_hearts.Count && i < m_currentLives)
             {
                 m_hearts[i].sprite = m_fullHeart;
             }
@@ -61,7 +64,7 @@ public class LivesManager : MonoBehaviour
 
         if (m_addLives != null)
         {
-            m_addLives.SetActive(currentLives < GameManager.Instance.GetMaxLives());
+            m_addLives.SetActive(m_currentLives < GameManager.Instance.GetMaxLives());
         }
     }
 
@@ -73,5 +76,10 @@ public class LivesManager : MonoBehaviour
     public void WatchAdForLife()
     {
         AdsManager.Instance.ShowRewardedAd(m_rewardCompleteActions);
+    }
+
+    public void SetFakeLevelLives(int lives)
+    {
+        m_fakeLevelLives = lives;
     }
 }
