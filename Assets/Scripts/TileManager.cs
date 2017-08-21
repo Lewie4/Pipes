@@ -518,6 +518,8 @@ public class TileManager : MonoBehaviour
                     }
                     SendLevelFailedAnalytic();
                     m_livesManager.SetFakeLevelLives(0);
+
+                    FixupLostLives();
                 }
             }
         }
@@ -639,6 +641,23 @@ public class TileManager : MonoBehaviour
         eventData.Add("Level", GameManager.Instance.GetCurrentLevel());
 
         Analytics.CustomEvent("LevelFailed", eventData);
+    }
+
+    public void FixupLostLives()
+    {
+        if (m_hasLevelStarted)
+        {
+            int currentLives = GameManager.Instance.GetCurrentLives();
+            int maxLives = GameManager.Instance.GetMaxLives();
+            if (currentLives == maxLives)
+            {
+                GameManager.Instance.SpendLives(1);
+            }
+            else if (currentLives == maxLives - 1)
+            {
+                GameManager.Instance.SetTimeLivesSpentToCurrent();
+            }
+        }
     }
 
     public void LoadLevelFromGame(int level)

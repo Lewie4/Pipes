@@ -247,6 +247,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLives", m_currentLives);
     }
 
+    public void SetTimeLivesSpentToCurrent()
+    {
+        m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
+        PlayerPrefs.SetInt("TimeLivesSpent", m_timeLivesSpent);
+    }
+
     public int GetCurrentLives()
     {
         if (m_hasUnlimitedLives)
