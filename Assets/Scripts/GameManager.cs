@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
 
             m_timeOffset = localTime - networkTime;
 
+            if (PlayerPrefs.GetInt("HasUnlimitedLives", 0) != 0)
+            {
+                m_hasUnlimitedLives = true;
+            }
+
             CheckLives();
         }
         else if (Instance != this)
@@ -167,12 +172,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void CheckLives()
-    {
-        if (PlayerPrefs.GetInt("HasUnlimitedLives", 0) != 0)
-        {
-            m_hasUnlimitedLives = true;
-        }
-            
+    {            
         if (m_hasUnlimitedLives)
         {
             PlayerPrefs.SetInt("CurrentLives", m_maxLives);
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
                 m_currentLives += (int)(diff / m_timeToLivesRefil);
                 m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
 
-                if (m_currentLives > m_maxLives)
+                if (m_currentLives >= m_maxLives)
                 {
                     m_currentLives = m_maxLives;
                     m_timeLivesSpent = 0;
@@ -238,9 +238,10 @@ public class GameManager : MonoBehaviour
     {
         m_currentLives += num;
 
-        if (m_currentLives > m_maxLives)
+        if (m_currentLives >= m_maxLives)
         {
             m_currentLives = m_maxLives;
+            m_timeLivesSpent = 0;
         }
 
         PlayerPrefs.SetInt("CurrentLives", m_currentLives);
