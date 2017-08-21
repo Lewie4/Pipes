@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int m_timeToLivesRefil = 600;
     private int m_timeLivesSpent;
     private double m_timeOffset = 0;
+    private bool m_hasUnlimitedLives = false;
 
     private void Awake()
     {
@@ -167,20 +168,33 @@ public class GameManager : MonoBehaviour
 
     public void CheckLives()
     {
-        double diff = (LocalTime() - m_timeOffset) - m_timeLivesSpent;
-        if (diff > m_timeToLivesRefil)
+        if (PlayerPrefs.GetInt("HasUnlimitedLives", 0) != 0)
         {
-            m_currentLives += (int)(diff / m_timeToLivesRefil);
-            m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
-
-            if (m_currentLives > m_maxLives)
+            m_hasUnlimitedLives = true;
+        }
+            
+        if (m_hasUnlimitedLives)
+        {
+            PlayerPrefs.SetInt("CurrentLives", m_maxLives);
+            PlayerPrefs.SetInt("TimeLivesSpent", 0);
+        }
+        else
+        {
+            double diff = (LocalTime() - m_timeOffset) - m_timeLivesSpent;
+            if (diff > m_timeToLivesRefil)
             {
-                m_currentLives = m_maxLives;
-                m_timeLivesSpent = 0;
-            }
+                m_currentLives += (int)(diff / m_timeToLivesRefil);
+                m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
 
-            PlayerPrefs.SetInt("CurrentLives", m_currentLives);
-            PlayerPrefs.SetInt("TimeLivesSpent", m_timeLivesSpent);
+                if (m_currentLives > m_maxLives)
+                {
+                    m_currentLives = m_maxLives;
+                    m_timeLivesSpent = 0;
+                }
+
+                PlayerPrefs.SetInt("CurrentLives", m_currentLives);
+                PlayerPrefs.SetInt("TimeLivesSpent", m_timeLivesSpent);
+            }
         }
     }
 
@@ -200,21 +214,24 @@ public class GameManager : MonoBehaviour
 
     public void SpendLives(int num)
     {
-        m_currentLives -= num;
-
-        if (m_timeLivesSpent == 0)
+        if (!m_hasUnlimitedLives)
         {
-            m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
+            m_currentLives -= num;
+
+            if (m_timeLivesSpent == 0)
+            {
+                m_timeLivesSpent = (int)(LocalTime() - m_timeOffset);
+            }
+
+            if (m_currentLives < 0)
+            {
+                m_currentLives = 0;
+            }
+
+            PlayerPrefs.SetInt("CurrentLives", m_currentLives);
+
+            PlayerPrefs.SetInt("TimeLivesSpent", m_timeLivesSpent);
         }
-
-        if (m_currentLives < 0)
-        {
-            m_currentLives = 0;
-        }
-
-        PlayerPrefs.SetInt("CurrentLives", m_currentLives);
-
-        PlayerPrefs.SetInt("TimeLivesSpent", m_timeLivesSpent);
     }
 
     public void GainLives(int num)
@@ -231,11 +248,25 @@ public class GameManager : MonoBehaviour
 
     public int GetCurrentLives()
     {
-        return m_currentLives;
+        if (m_hasUnlimitedLives)
+        {
+            return m_maxLives;
+        }
+        else
+        {
+            return m_currentLives;
+        }
     }
 
     public int GetMaxLives()
     {
         return m_maxLives;
+    }
+
+    public void SetUnlimitedLives()
+    {
+        PlayerPrefs.SetInt("HasUnlimitedLives", 1);
+        m_hasUnlimitedLives = true;
+        m_currentLives = m_maxLives;
     }
 }

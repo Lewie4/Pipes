@@ -52,5 +52,10 @@ public class DebugController : MonoBehaviour
     {
         PlayerPrefs.SetInt("ProgressLevel", TileManager.Instance.m_levels.Count);
     }
+
+    public void UnlimitedLives()
+    {
+        GameManager.Instance.SetUnlimitedLives();
+    }
 }
 #endif
