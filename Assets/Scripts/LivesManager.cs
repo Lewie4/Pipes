@@ -85,6 +85,11 @@ public class LivesManager : MonoBehaviour
         AdsManager.Instance.ShowRewardedAd(m_rewardCompleteActions);
     }
 
+    public void BuyUnlimitedLives()
+    {
+        Purchaser.Instance.BuyUnlimitedLives();
+    }
+
     public void SetFakeLevelLives(int lives)
     {
         m_fakeLevelLives = lives;

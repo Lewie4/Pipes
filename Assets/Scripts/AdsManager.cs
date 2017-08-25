@@ -77,7 +77,14 @@ public class AdsManager : MonoBehaviour
     public bool CheckInterstitialAd()
     {
         #if UNITY_ADS
-        if (Advertisement.IsReady("video"))
+        if (!GameManager.Instance.GetUnlimitedLives())
+        {
+            if (Advertisement.IsReady("video"))
+            {
+                return true;
+            }
+        }
+        else
         {
             return true;
         }
@@ -90,10 +97,13 @@ public class AdsManager : MonoBehaviour
     public void ShowInterstitialAd()
     {
         #if UNITY_ADS
-        if (Advertisement.IsReady("video"))
+        if (!GameManager.Instance.GetUnlimitedLives())
         {
-            Advertisement.Show("video");
-            Time.timeScale = 0;
+            if (Advertisement.IsReady("video"))
+            {
+                Advertisement.Show("video");
+                Time.timeScale = 0;
+            }
         }
         #endif
     }

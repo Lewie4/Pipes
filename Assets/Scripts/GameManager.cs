@@ -276,4 +276,9 @@ public class GameManager : MonoBehaviour
         m_hasUnlimitedLives = true;
         m_currentLives = m_maxLives;
     }
+
+    public bool GetUnlimitedLives()
+    {
+        return m_hasUnlimitedLives;
+    }
 }
