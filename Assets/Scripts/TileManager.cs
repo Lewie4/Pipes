@@ -645,7 +645,7 @@ public class TileManager : MonoBehaviour
 
     public void FixupLostLives()
     {
-        if (m_hasLevelStarted)
+        if (m_hasLevelStarted && !m_hasWon)
         {
             int currentLives = GameManager.Instance.GetCurrentLives();
             int maxLives = GameManager.Instance.GetMaxLives();
