@@ -16,7 +16,8 @@ public class LivesManager : MonoBehaviour
 
     [SerializeField] private Text m_timerText;
 
-    [SerializeField] private UnityEvent m_rewardCompleteActions;
+    [SerializeField] private UnityEvent m_rewardOneLives;
+    [SerializeField] private UnityEvent m_rewardExtraTime;
 
     private int m_currentLives = 0;
     private int m_fakeLevelLives = 0;
@@ -80,9 +81,14 @@ public class LivesManager : MonoBehaviour
         GameManager.Instance.SpendLives(lives);
     }
 
+    public void GainLives(int lives)
+    {
+        GameManager.Instance.GainLives(lives);
+    }
+
     public void WatchAdForLife()
     {
-        AdsManager.Instance.ShowRewardedAd(m_rewardCompleteActions);
+        AdsManager.Instance.ShowRewardedAd(m_rewardOneLives);
     }
 
     public void BuyUnlimitedLives()

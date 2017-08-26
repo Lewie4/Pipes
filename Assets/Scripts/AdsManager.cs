@@ -115,7 +115,7 @@ public class AdsManager : MonoBehaviour
         {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
-                AwardLives(1);
+                AwardReward();
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");
@@ -127,9 +127,8 @@ public class AdsManager : MonoBehaviour
     }
     #endif
 
-    public void AwardLives(int lives)
+    public void AwardReward()
     {
-        GameManager.Instance.GainLives(lives);
         m_rewardCompleteActions.Invoke();
         m_rewardCompleteActions = null;
     }
