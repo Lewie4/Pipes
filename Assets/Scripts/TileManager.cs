@@ -161,7 +161,7 @@ public class TileManager : MonoBehaviour
             PositionRightTiles();
             PositionBottomTiles();
 
-            m_levelInfoPopup.SetActive(true); 
+            m_levelInfoPopup.GetComponent<Button>().interactable = true; 
             m_extraTimeButton.SetActive(true);
         }
         else
