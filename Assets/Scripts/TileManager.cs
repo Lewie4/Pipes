@@ -447,7 +447,7 @@ public class TileManager : MonoBehaviour
                                         Tile currentTile = m_gameBoard[(int)m_pipesToFill[i].m_location.x].m_column[(int)m_pipesToFill[i].m_location.y];
                                         if (currentTile != null)
                                         {
-                                            if (!currentTile.GetIsFull())
+                                            if (!currentTile.GetIsFull() && !currentTile.GetIsBroken())
                                             {
                                                 if (CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
                                                 {                                    
@@ -466,6 +466,10 @@ public class TileManager : MonoBehaviour
                                             else
                                             {
                                                 if (!CheckFrom(currentTile, m_pipesToFill[i].m_filledFrom))
+                                                {
+                                                    m_hasLost = true;
+                                                }
+                                                else if (currentTile.GetIsBroken())
                                                 {
                                                     m_hasLost = true;
                                                 }
@@ -529,7 +533,7 @@ public class TileManager : MonoBehaviour
     {
         for (int i = 0; i < m_gameBoard[0].m_column.Count; i++)
         {
-            if (m_gameBoard[0].m_column[i].GetTileType() != Tile.TileType.Empty)
+            if (m_gameBoard[0].m_column[i] != null)
             {
                 m_pipesToFill.Add(new PipesToFill(new Vector2(0, i), FillLocation.Left));
 

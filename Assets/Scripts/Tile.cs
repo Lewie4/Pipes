@@ -5,26 +5,15 @@ using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
-    public enum TileType
-    {
-        Empty,
-        Corner,
-        Line,
-        Cross,
-        Threeway,
-        DeadEnd}
-
-    ;
-
     [System.Serializable]
     public class TileProperties
     {
-        public TileType m_tileType;
         public bool m_top;
         public bool m_left;
         public bool m_right;
         public bool m_bottom;
         public bool m_isFull;
+        public bool m_isBroken;
     }
 
     [SerializeField] private TileProperties m_tileProperties;
@@ -67,11 +56,6 @@ public class Tile : MonoBehaviour
 
             this.transform.localRotation = newRot;
         }
-    }
-
-    public TileType GetTileType()
-    {
-        return m_tileProperties.m_tileType;
     }
 
     public bool GetTop()
@@ -117,5 +101,10 @@ public class Tile : MonoBehaviour
     public bool GetIsFull()
     {
         return m_tileProperties.m_isFull;
+    }
+
+    public bool GetIsBroken()
+    {
+        return m_tileProperties.m_isBroken;
     }
 }
