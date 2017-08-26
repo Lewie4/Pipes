@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using UnityEngine.Events;
 
-// Deriving the Purchaser class from IStoreListener enables it to receive messages from Unity Purchasing.
 public class Purchaser : MonoBehaviour, IStoreListener
 {
     public static Purchaser Instance = null;
 
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
+
+    private UnityEvent m_currentPurchaseAction;
 
     public static string m_unlimitedLives = "com.kingcat.pipes.unlimitedlives";
 
@@ -54,8 +56,9 @@ public class Purchaser : MonoBehaviour, IStoreListener
     }
 
 
-    public void BuyUnlimitedLives()
+    public void BuyUnlimitedLives(UnityEvent action)
     {
+        m_currentPurchaseAction = action;
         BuyProductID(m_unlimitedLives);
     }
 
@@ -143,6 +146,8 @@ public class Purchaser : MonoBehaviour, IStoreListener
         {
             Debug.Log(string.Format("ProcessPurchase: FAIL. Unrecognized product: '{0}'", args.purchasedProduct.definition.id));
         }*/
+
+        m_currentPurchaseAction.Invoke();
 
         return PurchaseProcessingResult.Complete;
     }
