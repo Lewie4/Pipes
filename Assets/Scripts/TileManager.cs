@@ -99,6 +99,7 @@ public class TileManager : MonoBehaviour
 
     private bool m_hasLevelStarted = false;
     [SerializeField] private GameObject m_levelInfoPopup;
+    [SerializeField] private GameObject m_extraTimeButton;
     [SerializeField] private GameObject m_gameCompletedPopup;
 
     private void Awake()
@@ -161,6 +162,7 @@ public class TileManager : MonoBehaviour
             PositionBottomTiles();
 
             m_levelInfoPopup.SetActive(true); 
+            m_extraTimeButton.SetActive(true);
         }
         else
         {
@@ -613,6 +615,11 @@ public class TileManager : MonoBehaviour
     {
         m_timeToStart = 0;
         m_timeToFill = 0;
+    }
+
+    public void AddTimeToStart(float time)
+    {
+        m_timeToStart += time;
     }
 
     public float GetTimeToStart()

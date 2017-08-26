@@ -91,6 +91,11 @@ public class LivesManager : MonoBehaviour
         AdsManager.Instance.ShowRewardedAd(m_rewardOneLives);
     }
 
+    public void WatchAdForTime()
+    {
+        AdsManager.Instance.ShowRewardedAd(m_rewardExtraTime);
+    }
+
     public void BuyUnlimitedLives()
     {
         Purchaser.Instance.BuyUnlimitedLives();
