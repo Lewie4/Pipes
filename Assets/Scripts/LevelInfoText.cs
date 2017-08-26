@@ -7,7 +7,8 @@ public class LevelInfoText : MonoBehaviour
 {
     [SerializeField] private Text m_text;
 
-    private int currentLevel = -1;
+    private int m_currentLevel = -1;
+    private float m_timeToStart = -1;
 
     private void Start()
     {
@@ -19,9 +20,10 @@ public class LevelInfoText : MonoBehaviour
 
     private void Update () 
     {
-        if (currentLevel != GameManager.Instance.GetCurrentLevel())
+        if (m_currentLevel != GameManager.Instance.GetCurrentLevel() || m_timeToStart != TileManager.Instance.GetTimeToStart())
         {
-            currentLevel = GameManager.Instance.GetCurrentLevel();
+            m_currentLevel = GameManager.Instance.GetCurrentLevel();
+            m_timeToStart = TileManager.Instance.GetTimeToStart();
             if (m_text != null)
             {
                 m_text.text = "Difficulty:\n" + TileManager.Instance.GetLevelDifficulty() + "\n" +
