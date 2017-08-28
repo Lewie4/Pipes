@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelText : MonoBehaviour 
+public class LevelText : MonoBehaviour
 {
     [SerializeField] private Text m_text;
 
@@ -17,9 +17,9 @@ public class LevelText : MonoBehaviour
         }
     }
 
-	private void Update () 
+    private void Update()
     {
-        if (currentLevel != GameManager.Instance.GetCurrentLevel())
+        if (currentLevel != GameManager.Instance.GetCurrentLevel() && !TileManager.Instance.GetHasWon())
         {
             currentLevel = GameManager.Instance.GetCurrentLevel();
             if (m_text != null)
@@ -27,5 +27,5 @@ public class LevelText : MonoBehaviour
                 m_text.text = "Level " + (currentLevel + 1).ToString();
             }
         }
-	}
+    }
 }

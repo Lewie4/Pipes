@@ -611,6 +611,11 @@ public class TileManager : MonoBehaviour
         return m_levelDifficulty;
     }
 
+    public bool GetHasWon()
+    {
+        return m_hasWon;
+    }
+
     public void FastForward()
     {
         m_timeToStart = 0;
