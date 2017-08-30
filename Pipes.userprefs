@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TileManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelInfoText.cs">
     <Files>
       <File FileName="Assets\Scripts\Tile.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TileManager.cs" Line="1" Column="1" />
@@ -11,6 +11,7 @@
       <File FileName="Assets\Scripts\Parallaxing.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Tiling.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LevelText.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LevelInfoText.cs" Line="26" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
