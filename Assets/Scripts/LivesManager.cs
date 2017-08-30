@@ -16,6 +16,8 @@ public class LivesManager : MonoBehaviour
 
     [SerializeField] private Text m_timerText;
 
+    [SerializeField] private GameObject m_internetConnectionPopup;
+
     [SerializeField] private UnityEvent m_rewardOneLives;
     [SerializeField] private UnityEvent m_rewardUnlimitedLives;
     [SerializeField] private UnityEvent m_rewardExtraTime;
@@ -89,12 +91,26 @@ public class LivesManager : MonoBehaviour
 
     public void WatchAdForLife()
     {
-        AdsManager.Instance.ShowRewardedAd(m_rewardOneLives);
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            AdsManager.Instance.ShowRewardedAd(m_rewardOneLives);
+        }
+        else
+        {
+            m_internetConnectionPopup.SetActive(true);
+        }
     }
 
     public void WatchAdForTime()
     {
-        AdsManager.Instance.ShowRewardedAd(m_rewardExtraTime);
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            AdsManager.Instance.ShowRewardedAd(m_rewardExtraTime);
+        }
+        else
+        {
+            m_internetConnectionPopup.SetActive(true);
+        }
     }
 
     public void BuyUnlimitedLives()
