@@ -129,8 +129,11 @@ public class AdsManager : MonoBehaviour
 
     public void AwardReward()
     {
-        m_rewardCompleteActions.Invoke();
-        m_rewardCompleteActions = null;
+        if (m_rewardCompleteActions != null)
+        {
+            m_rewardCompleteActions.Invoke();
+            m_rewardCompleteActions = null;
+        }
     }
 
     public bool CheckRandomInterstitialAd()
