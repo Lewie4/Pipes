@@ -19,6 +19,9 @@ public class SoundManager : MonoBehaviour
 
     private bool m_muted = false;
 
+    private IEnumerator m_currentFadeIn = null;
+    private IEnumerator m_currentFadeOut = null;
+
     private void Awake()
     {
         if (Instance == null)
@@ -85,15 +88,28 @@ public class SoundManager : MonoBehaviour
     {
         if (prev != current)
         {
+            if (m_currentFadeOut != null)
+            {
+                StopCoroutine(m_currentFadeOut);
+            }
+            if (m_currentFadeIn != null)
+            {
+                StopCoroutine(m_currentFadeIn);
+            }
+
             if (current.name == "MainMenu")
             {
-                StartCoroutine(FadeOut(m_gameMusicSource, 0.5f));
-                StartCoroutine(FadeIn(m_menuMusicSource, m_menuMusic, 0.5f));   
+                m_currentFadeOut = FadeOut(m_gameMusicSource, 0.5f);
+                StartCoroutine(m_currentFadeOut);
+                m_currentFadeIn = FadeIn(m_menuMusicSource, m_menuMusic, 0.5f);
+                StartCoroutine(m_currentFadeIn);   
             }
             else if (current.name == "Game")
             {
+                m_currentFadeOut = FadeOut(m_menuMusicSource, 0.5f);
                 StartCoroutine(FadeOut(m_menuMusicSource, 0.5f));
-                StartCoroutine(FadeIn(m_gameMusicSource, GetRandomAudio(m_gameMusic), 0.5f));   
+                m_currentFadeIn = FadeIn(m_gameMusicSource, GetRandomAudio(m_gameMusic), 0.5f);
+                StartCoroutine(m_currentFadeIn);   
             }
         }
     }
