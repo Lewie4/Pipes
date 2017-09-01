@@ -139,7 +139,7 @@ public class AdsManager : MonoBehaviour
     public bool CheckRandomInterstitialAd()
     {
         #if UNITY_ADS
-        if (Random.Range(0, 100) <= m_adChance && AdsManager.Instance.CheckInterstitialAd() && CheckInterstitialAd())
+        if (Random.Range(0, 100) <= m_adChance && CheckInterstitialAd())
         {
             return true;
         }

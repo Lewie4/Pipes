@@ -41,15 +41,14 @@ public class LoadSceneManager : MonoBehaviour
         }
     }
 
-    public void LoadCurrentLevel()
+    public void LoadCurrentLevel(bool adChance)
     {
-        if (AdsManager.Instance.CheckRandomInterstitialAd())
+        if (adChance && AdsManager.Instance.CheckRandomInterstitialAd())
         {
             AdsManager.Instance.ShowInterstitialAd();
         }
 
         TileManager.Instance.LoadLevelFromGame(GameManager.Instance.GetCurrentLevel());
-
     }
 
     public void StartLevel()
