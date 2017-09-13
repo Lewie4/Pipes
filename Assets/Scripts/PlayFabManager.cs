@@ -95,6 +95,10 @@ public class PlayFabManager : MonoBehaviour
                 SetCurrentLevel();
             }
         }
+        else
+        {
+            SetCurrentLevel();
+        }
 
         dataRecord = null;
         result.Data.TryGetValue("UnlimitedLives", out dataRecord);
