@@ -96,6 +96,7 @@ public class PlayFabManager : MonoBehaviour
             }
         }
 
+        dataRecord = null;
         result.Data.TryGetValue("UnlimitedLives", out dataRecord);
         if (dataRecord != null)
         {
