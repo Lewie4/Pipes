@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("ProgressLevel", m_currentLevel);
             SendLevelUnlockedAnalytic();
+            PlayFabManager.Instance.SetCurrentLevel();
         }
     }
 

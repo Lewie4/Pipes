@@ -132,6 +132,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
             GameManager.Instance.SetUnlimitedLives();
+            PlayFabManager.Instance.SetUnlimitedLives();
         }
         /*
         else if (String.Equals(args.purchasedProduct.definition.id, kProductIDNonConsumable, StringComparison.Ordinal))
