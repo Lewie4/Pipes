@@ -63,6 +63,7 @@ public class PlayFabManager : MonoBehaviour
                 if ((result.Data == null) || (result.Data.Count == 0))
                 {
                     Debug.Log("PlayFab::GetUserData No user data available");
+                    ForceUpdateRemote();
                 }
                 else
                 {
@@ -115,6 +116,15 @@ public class PlayFabManager : MonoBehaviour
             {
                 SetUnlimitedLives();
             }
+        }
+    }
+
+    private void ForceUpdateRemote()
+    {
+        SetCurrentLevel();
+        if (PlayerPrefs.GetInt("HasUnlimitedLives", 0) == 1)
+        {
+            SetUnlimitedLives();
         }
     }
 
