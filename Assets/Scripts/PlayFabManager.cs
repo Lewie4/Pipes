@@ -90,6 +90,10 @@ public class PlayFabManager : MonoBehaviour
                 PlayerPrefs.SetInt("ProgressLevel", progressLevel);
                 GameManager.Instance.SetCurrentLevel(progressLevel);
             }
+            else
+            {
+                SetCurrentLevel();
+            }
         }
 
         result.Data.TryGetValue("UnlimitedLives", out dataRecord);
