@@ -49,7 +49,7 @@ public class PlayFabManager : MonoBehaviour
         Debug.LogError(error.GenerateErrorReport());
     }
 
-    void GetUserData()
+    private void GetUserData()
     {
         GetUserDataRequest request = new GetUserDataRequest()
         {
