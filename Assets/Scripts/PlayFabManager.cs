@@ -118,7 +118,7 @@ public class PlayFabManager : MonoBehaviour
         }
 
         dataRecord = null;
-        result.Data.TryGetValue("CurrencyCoins", out dataRecord);
+        result.Data.TryGetValue("CurrentCoins", out dataRecord);
         if (dataRecord != null)
         {
             int currentCoins = -1;
