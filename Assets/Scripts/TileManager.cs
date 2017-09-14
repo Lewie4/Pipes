@@ -168,10 +168,10 @@ public class TileManager : MonoBehaviour
             m_levelInfoPopup.SetActive(true); 
             m_extraTimeButton.GetComponent<Button>().interactable = true;
 
-            m_bestTime = PlayerPrefs.GetInt("Level" + (level - 1).ToString(), 0);
+            m_bestTime = PlayerPrefs.GetInt("Level" + level.ToString(), 0);
             if (PlayFabManager.Instance != null)
             {
-                PlayFabManager.Instance.GetLevelData(level - 1);
+                PlayFabManager.Instance.GetLevelData(level);
             }
         }
         else
@@ -377,10 +377,10 @@ public class TileManager : MonoBehaviour
 
                         if (m_bestTime < m_remainingTime)
                         {
-                            PlayerPrefs.SetInt("Level" + GameManager.Instance.GetCurrentLevel().ToString(), m_remainingTime);
+                            PlayerPrefs.SetInt("Level" + (GameManager.Instance.GetCurrentLevel() - 1).ToString(), m_remainingTime);
                             if (PlayFabManager.Instance != null)
                             {
-                                PlayFabManager.Instance.SetLevelData(GameManager.Instance.GetCurrentLevel(), m_remainingTime);
+                                PlayFabManager.Instance.SetLevelData(GameManager.Instance.GetCurrentLevel() - 1, m_remainingTime);
                                 GameManager.Instance.AddCoins(m_remainingTime - m_bestTime);
                             }
                         }
