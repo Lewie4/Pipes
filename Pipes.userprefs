@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Assets\Scripts\Tile.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TileManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LoadSceneManager.cs" Line="46" Column="1" />
+      <File FileName="Assets\Scripts\LoadSceneManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Timer.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LivesManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
@@ -18,18 +18,7 @@
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="265" column="34" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="294" column="1" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="323" column="1" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="352" column="1" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="552" column="34" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="588" column="30" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="596" column="1" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="604" column="30" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\TileManager.cs" line="612" column="1" />
-      <Breakpoint file="F:\Users\matil\Documents\Projects\Pipes\Assets\Scripts\Timer.cs" line="74" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
