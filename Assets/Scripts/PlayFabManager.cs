@@ -84,9 +84,8 @@ public class PlayFabManager : MonoBehaviour
         if (dataRecord != null)
         {
             int progressLevel = -1;
-            int.TryParse(dataRecord.Value, out progressLevel);
 
-            if (progressLevel > PlayerPrefs.GetInt("ProgressLevel", 0))
+            if (int.TryParse(dataRecord.Value, out progressLevel) && progressLevel > PlayerPrefs.GetInt("ProgressLevel", 0))
             {
                 PlayerPrefs.SetInt("ProgressLevel", progressLevel);
                 GameManager.Instance.SetCurrentLevel(progressLevel);
@@ -117,6 +116,27 @@ public class PlayFabManager : MonoBehaviour
                 SetUnlimitedLives();
             }
         }
+
+        dataRecord = null;
+        result.Data.TryGetValue("CurrencyCoins", out dataRecord);
+        if (dataRecord != null)
+        {
+            int currentCoins = -1;
+
+            if (int.TryParse(dataRecord.Value, out currentCoins) && currentCoins > PlayerPrefs.GetInt("CurrentCoins", 0))
+            {
+                PlayerPrefs.SetInt("CurrentCoins", currentCoins);
+                GameManager.Instance.SetCoins(currentCoins);
+            }
+            else
+            {
+                SetCurrentCoins();
+            }
+        }
+        else
+        {
+            SetCurrentCoins();
+        }
     }
 
     private void ForceUpdateRemote()
@@ -126,6 +146,7 @@ public class PlayFabManager : MonoBehaviour
         {
             SetUnlimitedLives();
         }
+        SetCurrentCoins();
     }
 
     public void SetCurrentLevel()
@@ -166,6 +187,28 @@ public class PlayFabManager : MonoBehaviour
             }, (error) =>
             {
                 Debug.Log("PlayFab::SetUnlimitedLives Error");
+                Debug.Log(error.ErrorDetails);
+            });
+    }
+
+    public void SetCurrentCoins()
+    {
+        int currentCoins = PlayerPrefs.GetInt("CurrentCoins", 0);
+
+        var request = new UpdateUserDataRequest()
+        { 
+            Data = new Dictionary<string, string>()
+            {
+                { "CurrentCoins", currentCoins.ToString() }
+            }
+        };
+
+        PlayFabClientAPI.UpdateUserData(request, (result) =>
+            {
+                Debug.Log("PlayFab::SetCurrentCoins Success");
+            }, (error) =>
+            {
+                Debug.Log("PlayFab::SetCurrentCoins Error");
                 Debug.Log(error.ErrorDetails);
             });
     }

@@ -102,6 +102,8 @@ public class TileManager : MonoBehaviour
     [SerializeField] private GameObject m_extraTimeButton;
     [SerializeField] private GameObject m_gameCompletedPopup;
 
+    private int m_remainingTime = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -141,6 +143,7 @@ public class TileManager : MonoBehaviour
             m_timeToStart = m_levels[level].m_timeToStart;
             m_timeToFill = m_levels[level].m_timeToFill;
             m_levelDifficulty = m_levels[level].m_levelDifficulty;
+            m_remainingTime = 0;
 
             m_gameBoard = new List<Column>();
             foreach (Column col in m_levels[level].m_board)
@@ -364,6 +367,8 @@ public class TileManager : MonoBehaviour
 
                         GameManager.Instance.GainLives(1);
                         m_livesManager.SetFakeLevelLives(0);
+
+                        GameManager.Instance.AddCoins(m_remainingTime);
                     }
                 }
                 else if (!m_hasWon || m_pipesToFill.Count != 0)
@@ -618,8 +623,10 @@ public class TileManager : MonoBehaviour
 
     public void FastForward()
     {
+        m_remainingTime = (int)(m_timeToStart - m_startFillTime);
         m_timeToStart = 0;
         m_timeToFill = 0;
+
     }
 
     public void AddTimeToStart(float time)

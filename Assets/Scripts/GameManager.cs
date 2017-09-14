@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     private double m_timeOffset = 0;
     private bool m_hasUnlimitedLives = false;
 
+    [SerializeField] private int m_currentCoins = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
             }
 
             CheckLives();
+
+            m_currentCoins = PlayerPrefs.GetInt("CurrentCoins", 0);
         }
         else if (Instance != this)
         {
@@ -86,7 +90,10 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("ProgressLevel", m_currentLevel);
             SendLevelUnlockedAnalytic();
-            PlayFabManager.Instance.SetCurrentLevel();
+            if (PlayFabManager.Instance != null)
+            {
+                PlayFabManager.Instance.SetCurrentLevel();
+            }
         }
     }
 
@@ -281,5 +288,26 @@ public class GameManager : MonoBehaviour
     public bool GetUnlimitedLives()
     {
         return m_hasUnlimitedLives;
+    }
+
+    public void AddCoins(int amount)
+    {
+        m_currentCoins += amount;
+        PlayerPrefs.SetInt("CurrentCoins", m_currentCoins);
+        if (PlayFabManager.Instance != null)
+        {
+            PlayFabManager.Instance.SetCurrentCoins();
+        }
+    }
+
+    public void SetCoins(int amount)
+    {
+        m_currentCoins = amount;
+        PlayerPrefs.SetInt("CurrentCoins", m_currentCoins);
+    }
+
+    public int GetCurrentCoins()
+    {
+        return m_currentCoins;
     }
 }
