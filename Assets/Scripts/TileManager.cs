@@ -103,6 +103,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] private GameObject m_gameCompletedPopup;
 
     private int m_remainingTime = 0;
+    private int m_bestTime = 0;
 
     private void Awake()
     {
@@ -166,6 +167,12 @@ public class TileManager : MonoBehaviour
 
             m_levelInfoPopup.SetActive(true); 
             m_extraTimeButton.GetComponent<Button>().interactable = true;
+
+            m_bestTime = PlayerPrefs.GetInt("Level" + level.ToString(), 0);
+            if (PlayFabManager.Instance != null)
+            {
+                PlayFabManager.Instance.GetLevelData(level);
+            }
         }
         else
         {
@@ -368,7 +375,15 @@ public class TileManager : MonoBehaviour
                         GameManager.Instance.GainLives(1);
                         m_livesManager.SetFakeLevelLives(0);
 
-                        GameManager.Instance.AddCoins(m_remainingTime);
+                        if (m_bestTime < m_remainingTime)
+                        {
+                            PlayerPrefs.SetInt("Level" + GameManager.Instance.GetCurrentLevel().ToString(), m_remainingTime);
+                            if (PlayFabManager.Instance != null)
+                            {
+                                PlayFabManager.Instance.SetLevelData(GameManager.Instance.GetCurrentLevel(), m_remainingTime);
+                                GameManager.Instance.AddCoins(m_remainingTime - m_bestTime);
+                            }
+                        }
                     }
                 }
                 else if (!m_hasWon || m_pipesToFill.Count != 0)
@@ -735,6 +750,15 @@ public class TileManager : MonoBehaviour
                     m_gameLostObjects[i].SetActive(false);
                 }
             }
+        }
+    }
+
+    public void SetBestTime(int bestTime)
+    {
+        if (bestTime > m_bestTime)
+        {
+            m_bestTime = bestTime;
+            PlayerPrefs.SetInt("Level" + GameManager.Instance.GetCurrentLevel().ToString(), m_bestTime);
         }
     }
 }

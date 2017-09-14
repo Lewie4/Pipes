@@ -212,4 +212,63 @@ public class PlayFabManager : MonoBehaviour
                 Debug.Log(error.ErrorDetails);
             });
     }
+
+    public void GetLevelData(int level)
+    {
+        GetUserDataRequest request = new GetUserDataRequest()
+        {
+            PlayFabId = m_playFabID,
+            Keys = new List<string>()
+                    { "Level" + level.ToString() }
+        };
+
+        PlayFabClientAPI.GetUserData(request, (result) =>
+            {
+                Debug.Log("PlayFab::GetLevelData Success");
+                if ((result.Data == null) || (result.Data.Count == 0))
+                {
+                    Debug.Log("PlayFab::GetLevelData No user data available");
+                }
+                else
+                {
+                    UserDataRecord dataRecord;
+
+                    result.Data.TryGetValue("Level" + level.ToString(), out dataRecord);
+                    if (dataRecord != null)
+                    {
+                        int time = -1;
+
+                        if (int.TryParse(dataRecord.Value, out time))
+                        {
+                            TileManager.Instance.SetBestTime(time);
+                        }
+                    }
+                            
+                }
+            }, (error) =>
+            {
+                Debug.Log("PlayFab::GetLevelData Error");
+                Debug.Log(error.ErrorMessage);
+            });
+    }
+
+    public void SetLevelData(int level, int time)
+    {
+        var request = new UpdateUserDataRequest()
+        { 
+            Data = new Dictionary<string, string>()
+            {
+                { "Level" + level.ToString(), time.ToString() }
+            }
+        };
+
+        PlayFabClientAPI.UpdateUserData(request, (result) =>
+            {
+                Debug.Log("PlayFab::SetLevelData Success");
+            }, (error) =>
+            {
+                Debug.Log("PlayFab::SetLevelData Error");
+                Debug.Log(error.ErrorDetails);
+            });
+    }
 }
