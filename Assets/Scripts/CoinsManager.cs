@@ -45,12 +45,11 @@ public class CoinsManager : MonoBehaviour
 
                 m_coins += coinsToAdd != 0 ? coinsToAdd : (diff > 0 ? 1 : -1);
 
-                m_coinsText.text = "x " + m_coins.ToString();                
+                m_coinsText.text = m_coins.ToString();                
             }
             tickTime += Time.deltaTime;
             yield return null;
         }
-
         m_counting = false;
     }
 }
