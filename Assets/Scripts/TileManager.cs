@@ -104,6 +104,7 @@ public class TileManager : MonoBehaviour
 
     private int m_remainingTime = 0;
     private int m_bestTime = 0;
+    [SerializeField] private Text m_rewardText;
 
     private void Awake()
     {
@@ -382,6 +383,7 @@ public class TileManager : MonoBehaviour
                             {
                                 PlayFabManager.Instance.SetLevelData(GameManager.Instance.GetCurrentLevel() - 1, m_remainingTime);
                                 GameManager.Instance.AddCoins(m_remainingTime - m_bestTime);
+                                m_rewardText.text = (m_remainingTime - m_bestTime).ToString();
                             }
                         }
                     }
