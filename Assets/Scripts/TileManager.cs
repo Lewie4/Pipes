@@ -168,10 +168,10 @@ public class TileManager : MonoBehaviour
             m_levelInfoPopup.SetActive(true); 
             m_extraTimeButton.GetComponent<Button>().interactable = true;
 
-            m_bestTime = PlayerPrefs.GetInt("Level" + level.ToString(), 0);
+            m_bestTime = PlayerPrefs.GetInt("Level" + (level - 1).ToString(), 0);
             if (PlayFabManager.Instance != null)
             {
-                PlayFabManager.Instance.GetLevelData(level);
+                PlayFabManager.Instance.GetLevelData(level - 1);
             }
         }
         else
