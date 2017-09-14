@@ -386,6 +386,10 @@ public class TileManager : MonoBehaviour
                                 m_rewardText.text = (m_remainingTime - m_bestTime).ToString();
                             }
                         }
+                        else
+                        {
+                            m_rewardText.text = (0).ToString();
+                        }
                     }
                 }
                 else if (!m_hasWon || m_pipesToFill.Count != 0)
