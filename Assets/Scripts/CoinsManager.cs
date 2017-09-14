@@ -13,7 +13,7 @@ public class CoinsManager : MonoBehaviour
     private void Start()
     {
         m_coins = GameManager.Instance.GetCurrentCoins();
-        m_coinsText.text = "x " + m_coins.ToString();
+        m_coinsText.text = m_coins.ToString();
     }
 
     private void Update()
