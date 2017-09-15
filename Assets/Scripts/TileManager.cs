@@ -106,6 +106,8 @@ public class TileManager : MonoBehaviour
     private int m_bestTime = 0;
     [SerializeField] private Text m_rewardText;
 
+    private bool m_hasUnlimitedTime = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -146,6 +148,8 @@ public class TileManager : MonoBehaviour
             m_timeToFill = m_levels[level].m_timeToFill;
             m_levelDifficulty = m_levels[level].m_levelDifficulty;
             m_remainingTime = 0;
+
+            m_hasUnlimitedTime = PlayerPrefs.GetInt("Level" + level + "Time", 0) > 6 ? true : false;
 
             m_gameBoard = new List<Column>();
             foreach (Column col in m_levels[level].m_board)
@@ -376,9 +380,11 @@ public class TileManager : MonoBehaviour
                         GameManager.Instance.GainLives(1);
                         m_livesManager.SetFakeLevelLives(0);
 
-                        if (m_bestTime < m_remainingTime)
+                        int currentLevel = GameManager.Instance.GetCurrentLevel() - 1;
+
+                        if (PlayerPrefs.GetInt("Level" + currentLevel + "Time", 0) <= 6 && m_bestTime < m_remainingTime)
                         {
-                            PlayerPrefs.SetInt("Level" + (GameManager.Instance.GetCurrentLevel() - 1).ToString(), m_remainingTime);
+                            PlayerPrefs.SetInt("Level" + currentLevel.ToString(), m_remainingTime);
                             if (PlayFabManager.Instance != null)
                             {
                                 PlayFabManager.Instance.SetLevelData(GameManager.Instance.GetCurrentLevel() - 1, m_remainingTime);
@@ -524,14 +530,17 @@ public class TileManager : MonoBehaviour
                     }
                     else
                     {
-                        if (m_startFillTime < m_timeToStart)
+                        if (!m_hasUnlimitedTime)
                         {
-                            m_startFillTime += Time.deltaTime;
-                        }
-                        else
-                        {
-                            m_isFilling = true;
-                            m_currentFillTime = m_timeToFill;
+                            if (m_startFillTime < m_timeToStart)
+                            {
+                                m_startFillTime += Time.deltaTime;
+                            }
+                            else
+                            {
+                                m_isFilling = true;
+                                m_currentFillTime = m_timeToFill;
+                            }
                         }
                     }
                 }
@@ -647,7 +656,7 @@ public class TileManager : MonoBehaviour
         m_remainingTime = (int)(m_timeToStart - m_startFillTime);
         m_timeToStart = 0;
         m_timeToFill = 0;
-
+        m_hasUnlimitedTime = false;
     }
 
     public void AddTimeToStart(float time)
@@ -766,5 +775,10 @@ public class TileManager : MonoBehaviour
             m_bestTime = bestTime;
             PlayerPrefs.SetInt("Level" + GameManager.Instance.GetCurrentLevel().ToString(), m_bestTime);
         }
+    }
+
+    public bool GetUnlimitedTime()
+    {
+        return m_hasUnlimitedTime;
     }
 }

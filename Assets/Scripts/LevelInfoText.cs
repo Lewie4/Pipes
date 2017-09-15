@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelInfoText : MonoBehaviour 
+public class LevelInfoText : MonoBehaviour
 {
     [SerializeField] private Text m_text;
 
@@ -18,7 +18,7 @@ public class LevelInfoText : MonoBehaviour
         }
     }
 
-    private void Update () 
+    private void Update()
     {
         if (m_currentLevel != GameManager.Instance.GetCurrentLevel() || m_timeToStart != TileManager.Instance.GetTimeToStart())
         {
@@ -27,8 +27,16 @@ public class LevelInfoText : MonoBehaviour
             if (m_text != null)
             {
                 m_text.text = "Difficulty:\n" + TileManager.Instance.GetLevelDifficulty() + "\n" +
-                    "Board size:\n" + TileManager.Instance.GetBoardSize().ToString() + "x" + TileManager.Instance.GetBoardSize().ToString() + "\n" +
-                    "Water flows in:\n" + TileManager.Instance.GetTimeToStart().ToString() + " sec";
+                "Board size:\n" + TileManager.Instance.GetBoardSize().ToString() + "x" + TileManager.Instance.GetBoardSize().ToString() + "\n" +
+                "Water flows in:\n";
+                if (PlayerPrefs.GetInt("Level" + m_currentLevel + "Time", 0) > 6)
+                {
+                    m_text.text += "Unlimited sec";
+                }
+                else
+                {
+                    m_text.text += TileManager.Instance.GetTimeToStart().ToString() + " sec";
+                }
             }
         }
     }

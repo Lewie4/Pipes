@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
     {
         if (m_inLevel)
         {
-            if (m_currentAmount != TileManager.Instance.GetStartFillTime())
+            if (TileManager.Instance.GetUnlimitedTime() || m_currentAmount != TileManager.Instance.GetStartFillTime())
             {
                 m_currentAmount = TileManager.Instance.GetStartFillTime();
                 m_goSet = false;
@@ -64,7 +64,14 @@ public class Timer : MonoBehaviour
 
             if (m_currentAmount < m_timeToStart)
             {
-                m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
+                if (!TileManager.Instance.GetUnlimitedTime())
+                {
+                    m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
+                }
+                else
+                {
+                    m_textIndicator.text = "Unlimited";
+                }
             }
             else
             {
