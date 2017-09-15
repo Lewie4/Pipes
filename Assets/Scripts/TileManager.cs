@@ -177,6 +177,7 @@ public class TileManager : MonoBehaviour
             if (PlayFabManager.Instance != null)
             {
                 PlayFabManager.Instance.GetLevelData(level);
+                PlayFabManager.Instance.GetLevelTimeData(level);
             }
         }
         else
@@ -775,6 +776,13 @@ public class TileManager : MonoBehaviour
             m_bestTime = bestTime;
             PlayerPrefs.SetInt("Level" + GameManager.Instance.GetCurrentLevel().ToString(), m_bestTime);
         }
+    }
+
+    public void SetLevelTime(int time)
+    {
+        int level = GameManager.Instance.GetCurrentLevel();
+        PlayerPrefs.SetInt("Level" + level + "Time", time);
+        m_hasUnlimitedTime = PlayerPrefs.GetInt("Level" + level + "Time", 0) > 6 ? true : false;
     }
 
     public bool GetUnlimitedTime()

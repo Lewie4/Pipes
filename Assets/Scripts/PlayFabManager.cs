@@ -271,4 +271,64 @@ public class PlayFabManager : MonoBehaviour
                 Debug.Log(error.ErrorDetails);
             });
     }
+
+    public void GetLevelTimeData(int level)
+    {
+        GetUserDataRequest request = new GetUserDataRequest()
+        {
+            PlayFabId = m_playFabID,
+            Keys = new List<string>()
+                    { "Level" + level.ToString() + "Time" }
+        };
+
+        PlayFabClientAPI.GetUserData(request, (result) =>
+            {
+                Debug.Log("PlayFab::GetLevelTimeData Success");
+                if ((result.Data == null) || (result.Data.Count == 0))
+                {
+                    Debug.Log("PlayFab::GetLevelTimeData No user data available");
+                }
+                else
+                {
+                    UserDataRecord dataRecord;
+
+                    result.Data.TryGetValue("Level" + level.ToString() + "Time", out dataRecord);
+                    if (dataRecord != null)
+                    {
+                        int time = -1;
+
+                        if (int.TryParse(dataRecord.Value, out time))
+                        {
+                            TileManager.Instance.SetLevelTime(time);
+                            Transform.FindObjectOfType<ExtraTimeController>().ResetTime();
+                        }
+                    }
+
+                }
+            }, (error) =>
+            {
+                Debug.Log("PlayFab::GetLevelTimeData Error");
+                Debug.Log(error.ErrorMessage);
+            });
+    }
+
+    public void SetLevelTimeData(int level, int time)
+    {
+        var request = new UpdateUserDataRequest()
+        { 
+            Data = new Dictionary<string, string>()
+            {
+                { "Level" + level.ToString() + "Time", time.ToString() }
+            }
+        };
+
+        PlayFabClientAPI.UpdateUserData(request, (result) =>
+            {
+                Debug.Log("PlayFab::SetLevelTimeData Success");
+            }, (error) =>
+            {
+                Debug.Log("PlayFab::SetLevelTimeData Error");
+                Debug.Log(error.ErrorDetails);
+            });
+    }
 }

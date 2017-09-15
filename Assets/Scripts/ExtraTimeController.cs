@@ -27,6 +27,8 @@ public class ExtraTimeController : MonoBehaviour
             TileManager.Instance.AddTimeToStart(m_startingExtraTimeCount * 5);
             m_extraTimeCount = 0;
 
+            m_adButton.interactable = true;
+
             SetCurrentTimeText();
             SetExtraTimeText();
             SetCoinsText();
@@ -76,7 +78,9 @@ public class ExtraTimeController : MonoBehaviour
             m_startingExtraTimeCount += m_extraTimeCount;
             PlayerPrefs.SetInt("Level" + m_currentLevel + "Time", m_startingExtraTimeCount);
 
-            TileManager.Instance.AddTimeToStart(m_startingExtraTimeCount * 5);
+            PlayFabManager.Instance.SetLevelTimeData(m_currentLevel, m_startingExtraTimeCount);
+
+            TileManager.Instance.AddTimeToStart(m_extraTimeCount * 5);
             m_extraTimeCount = 0;
 
             SetCurrentTimeText();
@@ -106,7 +110,6 @@ public class ExtraTimeController : MonoBehaviour
         {
             m_plusButton.interactable = true;
             m_getButton.interactable = true;
-            m_adButton.interactable = true;
         }
 
         if (m_startingExtraTimeCount > 6)
@@ -139,5 +142,10 @@ public class ExtraTimeController : MonoBehaviour
     private int GetCurrentCost()
     {
         return m_extraTimeCount * 15;
+    }
+
+    public void ResetTime()
+    {
+        m_currentLevel = -1;
     }
 }
