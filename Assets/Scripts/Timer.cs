@@ -64,13 +64,13 @@ public class Timer : MonoBehaviour
 
             if (m_currentAmount < m_timeToStart)
             {
-                if (!TileManager.Instance.GetUnlimitedTime())
+                if (TileManager.Instance != null && TileManager.Instance.GetUnlimitedTime())
                 {
-                    m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
+                    m_textIndicator.text = "∞";
                 }
                 else
                 {
-                    m_textIndicator.text = "Unlimited";
+                    m_textIndicator.text = (m_timeToStart - m_currentAmount).ToString("F0");
                 }
             }
             else
