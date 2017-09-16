@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelInfoText : MonoBehaviour
 {
     [SerializeField] private Text m_text;
+    [SerializeField] private Text m_bestTimeText;
 
     private int m_currentLevel = -1;
     private float m_timeToStart = -1;
@@ -38,6 +39,8 @@ public class LevelInfoText : MonoBehaviour
                     m_text.text += TileManager.Instance.GetTimeToStart().ToString() + " sec";
                 }
             }
+
+            m_bestTimeText.text = PlayerPrefs.GetInt("Level" + m_currentLevel.ToString(), 0).ToString() + " sec";
         }
     }
 }
