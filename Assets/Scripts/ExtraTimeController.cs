@@ -28,6 +28,11 @@ public class ExtraTimeController : MonoBehaviour
     {
         if (m_currentLevel != GameManager.Instance.GetCurrentLevel() || m_currentTimeToStart != TileManager.Instance.GetTimeToStart())
         {
+            if (m_currentLevel != GameManager.Instance.GetCurrentLevel())
+            {
+                m_adButton.interactable = true;
+            }
+
             m_currentLevel = GameManager.Instance.GetCurrentLevel();
             m_currentTimeToStart = TileManager.Instance.GetTimeToStart();
             m_startingExtraTimeCount = PlayerPrefs.GetInt("Level" + m_currentLevel + "Time", 0);
@@ -39,7 +44,6 @@ public class ExtraTimeController : MonoBehaviour
 
             m_localExtraTime = m_startingExtraTimeCount;
 
-            m_adButton.interactable = true;
 
             SetCurrentTimeText();
             SetExtraTimeText();
