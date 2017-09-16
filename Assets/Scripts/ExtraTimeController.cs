@@ -89,10 +89,11 @@ public class ExtraTimeController : MonoBehaviour
 
             m_startingExtraTimeCount += m_extraTimeCount;
             PlayerPrefs.SetInt("Level" + m_currentLevel + "Time", m_startingExtraTimeCount);
-
+            m_localExtraTime = m_startingExtraTimeCount;
             PlayFabManager.Instance.SetLevelTimeData(m_currentLevel, m_startingExtraTimeCount);
 
             TileManager.Instance.AddTimeToStart(m_extraTimeCount * 5);
+
             m_extraTimeCount = 0;
 
             SetCurrentTimeText();
