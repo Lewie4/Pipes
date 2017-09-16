@@ -16,6 +16,7 @@ public class ExtraTimeController : MonoBehaviour
 
     [SerializeField] private GameObject m_shopPopup;
     [SerializeField] private GameObject m_extraTimePopup;
+    [SerializeField] private GameObject m_levelInfoPopup;
 
     private int m_startingExtraTimeCount = 0;
     private int m_extraTimeCount = 0;
@@ -103,6 +104,9 @@ public class ExtraTimeController : MonoBehaviour
             SetCurrentTimeText();
             SetExtraTimeText();
             SetCoinsText();
+
+            m_levelInfoPopup.SetActive(true);
+            m_extraTimePopup.SetActive(false);
         }
         else
         {
