@@ -314,6 +314,8 @@ public class PlayFabManager : MonoBehaviour
 
     public void SetLevelTimeData(int level, int time)
     {
+        TileManager.Instance.SetLevelTime(time);
+
         var request = new UpdateUserDataRequest()
         { 
             Data = new Dictionary<string, string>()

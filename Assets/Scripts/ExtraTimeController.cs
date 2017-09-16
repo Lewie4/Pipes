@@ -20,14 +20,16 @@ public class ExtraTimeController : MonoBehaviour
     private int m_startingExtraTimeCount = 0;
     private int m_extraTimeCount = 0;
     private int m_currentLevel = -1;
+    private float m_currentTimeToStart = -1;
 
     private int m_localExtraTime = 0;
 
     private void Update()
     {
-        if (m_currentLevel != GameManager.Instance.GetCurrentLevel())
+        if (m_currentLevel != GameManager.Instance.GetCurrentLevel() || m_currentTimeToStart != TileManager.Instance.GetTimeToStart())
         {
             m_currentLevel = GameManager.Instance.GetCurrentLevel();
+            m_currentTimeToStart = TileManager.Instance.GetTimeToStart();
             m_startingExtraTimeCount = PlayerPrefs.GetInt("Level" + m_currentLevel + "Time", 0);
             if (m_startingExtraTimeCount > m_localExtraTime)
             {
