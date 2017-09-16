@@ -27,7 +27,7 @@ public class PlayFabManager : MonoBehaviour
         PlayFabSettings.TitleId = "B5F"; 
 
         #if UNITY_EDITOR
-        var request = new LoginWithCustomIDRequest { CustomId = "Editor", CreateAccount = true, TitleId = PlayFabSettings.TitleId };
+        var request = new LoginWithCustomIDRequest { CustomId = SystemInfo.deviceUniqueIdentifier, CreateAccount = true, TitleId = PlayFabSettings.TitleId };
         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
         #elif UNITY_ANDROID
         var request = new LoginWithAndroidDeviceIDRequest { AndroidDeviceId = SystemInfo.deviceUniqueIdentifier, OS = SystemInfo.operatingSystem, AndroidDevice = SystemInfo.deviceModel, CreateAccount = true, TitleId = PlayFabSettings.TitleId };
