@@ -14,6 +14,13 @@ public class Purchaser : MonoBehaviour, IStoreListener
     private UnityEvent m_currentPurchaseAction;
 
     public static string m_unlimitedLives = "com.kingcat.pipes.unlimitedlives";
+    public static string m_coinsSmall = "com.kingcat.pipes.coinssmall";
+    public static string m_coinsMedium = "com.kingcat.pipes.coinsmedium";
+    public static string m_coinsLarge = "com.kingcat.pipes.coinslarge";
+
+    private int m_coinsSmallAmount = 150;
+    private int m_coinsMediumAmount = 750;
+    private int m_coinsLargeAmount = 2000;
 
     private void Awake()
     {
@@ -45,28 +52,30 @@ public class Purchaser : MonoBehaviour, IStoreListener
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
         builder.AddProduct(m_unlimitedLives, ProductType.Consumable);
+        builder.AddProduct(m_coinsSmall, ProductType.Consumable);
+        builder.AddProduct(m_coinsMedium, ProductType.Consumable);
+        builder.AddProduct(m_coinsLarge, ProductType.Consumable);
 
         UnityPurchasing.Initialize(this, builder);
     }
 
-
-    private bool IsInitialized()
+    public bool IsInitialized()
     {
         return m_StoreController != null && m_StoreExtensionProvider != null;
     }
 
 
-    public void BuyUnlimitedLives(UnityEvent action)
+    public void MakePurchase(string productID, UnityEvent action = null)
     {
         m_currentPurchaseAction = action;
-        BuyProductID(m_unlimitedLives);
+        BuyProductID(productID);
     }
 
-    void BuyProductID(string productId)
+    private void BuyProductID(string productId)
     {
         if (IsInitialized())
         {
-            Product product = m_StoreController.products.WithID(productId);
+            Product product = m_StoreController.products.WithID(productId);           
 
             if (product != null && product.availableToPurchase)
             {
@@ -83,6 +92,29 @@ public class Purchaser : MonoBehaviour, IStoreListener
 
             Debug.Log("BuyProductID FAIL. Not initialized.");
         }
+    }
+
+    public ProductMetadata GetProductMetadata(string productId)
+    {
+        Product product = m_StoreController.products.WithID(productId); 
+        return product.metadata;
+    }
+
+    public int GetProductAmount(string productID)
+    {
+        if (productID.Equals(m_coinsSmall))
+        {
+            return m_coinsSmallAmount;
+        }
+        else if (productID.Equals(m_coinsMedium))
+        {
+            return m_coinsMediumAmount;
+        }
+        else if (productID.Equals(m_coinsLarge))
+        {
+            return m_coinsLargeAmount;
+        }
+        return 0;
     }
 
     public void RestorePurchases()
@@ -134,19 +166,25 @@ public class Purchaser : MonoBehaviour, IStoreListener
             GameManager.Instance.SetUnlimitedLives();
             PlayFabManager.Instance.SetUnlimitedLives();
         }
-        /*
-        else if (String.Equals(args.purchasedProduct.definition.id, kProductIDNonConsumable, StringComparison.Ordinal))
+        else if (String.Equals(args.purchasedProduct.definition.id, m_coinsSmall, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            GameManager.Instance.AddCoins(m_coinsSmallAmount);
         }
-        else if (String.Equals(args.purchasedProduct.definition.id, kProductIDSubscription, StringComparison.Ordinal))
+        else if (String.Equals(args.purchasedProduct.definition.id, m_coinsMedium, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            GameManager.Instance.AddCoins(m_coinsMediumAmount);
+        }
+        else if (String.Equals(args.purchasedProduct.definition.id, m_coinsLarge, StringComparison.Ordinal))
+        {
+            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            GameManager.Instance.AddCoins(m_coinsLargeAmount);
         }
         else
         {
             Debug.Log(string.Format("ProcessPurchase: FAIL. Unrecognized product: '{0}'", args.purchasedProduct.definition.id));
-        }*/
+        }
 
         m_currentPurchaseAction.Invoke();
 

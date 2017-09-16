@@ -19,7 +19,6 @@ public class LivesManager : MonoBehaviour
     [SerializeField] private GameObject m_internetConnectionPopup;
 
     [SerializeField] private UnityEvent m_rewardOneLives;
-    [SerializeField] private UnityEvent m_rewardUnlimitedLives;
     [SerializeField] private UnityEvent m_rewardExtraTime;
 
     private int m_currentLives = 0;
@@ -111,11 +110,6 @@ public class LivesManager : MonoBehaviour
         {
             m_internetConnectionPopup.SetActive(true);
         }
-    }
-
-    public void BuyUnlimitedLives()
-    {
-        Purchaser.Instance.BuyUnlimitedLives(m_rewardUnlimitedLives);
     }
 
     public void SetFakeLevelLives(int lives)
